@@ -1,0 +1,232 @@
+/* CTA Section */
+.cta-section {
+    background-color: var(--color-surface);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.cta-title {
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+}
+
+.cta-description {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Pricing Cards */
+.pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.pricing-card {
+    background-color: var(--color-muted);
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+}
+
+.pricing-card.featured {
+    border: 2px solid var(--color-accent);
+}
+
+.pricing-badge {
+    position: absolute;
+    top: 1rem;
+    right: -2rem;
+    background-color: var(--color-accent);
+    color: var(--color-surface);
+    padding: 0.5rem 2rem;
+    transform: rotate(45deg);
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-bold);
+}
+
+.pricing-header {
+    background-color: var(--color-surface);
+    padding: 2rem;
+    text-align: center;
+}
+
+.pricing-title {
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+}
+
+.pricing-price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+.price-amount {
+    font-size: 3rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-ui-white);
+}
+
+.price-period {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.pricing-features {
+    padding: 2rem;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+}
+
+.features-list li {
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.features-list li::before {
+    content: "✓";
+    color: var(--color-accent);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.pricing-actions {
+    padding: 0 2rem 2rem;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+/* Family Pricing */
+.family-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.family-card {
+    background-color: var(--color-muted);
+    border-radius: var(--radius);
+    padding: 2rem;
+    text-align: center;
+}
+
+.family-card h3 {
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+}
+
+.family-price {
+    font-size: 2rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-ui-white);
+    margin-bottom: 1rem;
+}
+
+/* Additional Costs */
+.costs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.cost-item {
+    background-color: var(--color-muted);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.cost-item h3 {
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+}
+
+/* Payment Info */
+.payment-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.payment-methods ul,
+.payment-terms ul {
+    list-style: none;
+    padding: 0;
+}
+
+.payment-methods li,
+.payment-terms li {
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.payment-methods li::before,
+.payment-terms li::before {
+    content: "•";
+    color: var(--color-accent);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Trial Section */
+.trial-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.trial-info h3 {
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+}
+
+.trial-features {
+    margin: 1.5rem 0;
+}
+
+.trial-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.feature-icon {
+    color: var(--color-accent);
+    font-weight: bold;
+}
+
+.trial-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

@@ -1,0 +1,123 @@
+/* Hero Section */
+.hero {
+  background-color: var(--color-surface);
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--color-ui-white);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Features Section */
+.features {
+  padding: var(--section-padding);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background-color: var(--color-muted);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.feature-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.feature-description {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Schedule Preview */
+.schedule-preview {
+  padding: var(--section-padding);
+  background-color: var(--color-surface);
+}
+
+.schedule-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.schedule-card {
+  background-color: var(--color-muted);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+}
+
+.schedule-day {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-accent);
+}
+
+.schedule-time {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 0.5rem;
+}
+
+.schedule-group {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.schedule-actions {
+  text-align: center;
+}
+
+/* Facilities List */
+.facilities-list {
+    list-style: none;
+    padding: 0;
+}
+
+.facilities-list li {
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.facilities-list li::before {
+    content: "✓";
+    color: var(--color-accent);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
