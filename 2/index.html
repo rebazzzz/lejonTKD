@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lejon TKD - WTF Lejon Taekwondo i Hammarkullen, Göteborg</title>
+    <style>
+        /* CSS Variables for Design System */
+        :root {
+            --primary-green: #0B3D2E;
+            --black: #000000;
+            --white: #FFFFFF;
+            --accent-yellow: #FFD400;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+            
+            --font-heading: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+            --font-body: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            
+            --border-radius: 0.5rem;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        /* High Contrast Mode */
+        .high-contrast {
+            --primary-green: #000000;
+            --black: #000000;
+            --white: #FFFFFF;
+            --accent-yellow: #FFFF00;
+            --light-gray: #FFFFFF;
+            --dark-gray: #000000;
+        }
+        
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--black);
+            background-color: var(--white);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        a {
+            color: var(--primary-green);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        a:hover, a:focus {
+            color: var(--accent-yellow);
+            text-decoration: underline;
+        }
+        
+        button, .btn {
+            display: inline-block;
+            padding: var(--spacing-xs) var(--spacing-md);
+            background-color: var(--primary-green);
+            color: var(--white);
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            text-align: center;
+            transition: var(--transition);
+            min-height: 44px; /* Accessible touch target */
+            min-width: 44px;
+        }
+        
+        button:hover, .btn:hover, button:focus, .btn:focus {
+            background-color: var(--accent-yellow);
+            color: var(--black);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: var(--accent-yellow);
+            color: var(--black);
+        }
+        
+        .btn-secondary:hover, .btn-secondary:focus {
+            background-color: var(--primary-green);
+            color: var(--white);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        .section {
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-yellow);
+            margin: var(--spacing-sm) auto;
+        }
+        
+        .card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: var(--spacing-md);
+            transition: var(--transition);
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-green);
+            color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-sm) 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            margin-right: var(--spacing-sm);
+        }
+        
+        .logo-text {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin-left: var(--spacing-md);
+        }
+        
+        .nav-link {
+            color: var(--white);
+            font-weight: 600;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius);
+        }
+        
+        .nav-link:hover, .nav-link:focus {
+            background-color: rgba(255, 255, 255, 0.1);
+            text-decoration: none;
+        }
+        
+        .nav-link.active {
+            background-color: var(--accent-yellow);
+            color: var(--black);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(11, 61, 46, 0.8), rgba(11, 61, 46, 0.8)), url('https://via.placeholder.com/1920x1080') center/cover no-repeat;
+            color: var(--white);
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+        
+        /* Quick Contact */
+        .quick-contact {
+            background-color: var(--light-gray);
+            padding: var(--spacing-md) 0;
+        }
+        
+        .contact-items {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary-green);
+        }
+        
+        /* Features Section */
+        .features {
+            background-color: var(--white);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        /* Schedule Section */
+        .schedule {
+            background-color: var(--light-gray);
+        }
+        
+        .schedule-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+        }
+        
+        .schedule-day {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            text-align: center;
+        }
+        
+        .schedule-day h3 {
+            color: var(--primary-green);
+            border-bottom: 2px solid var(--accent-yellow);
+            padding-bottom: var(--spacing-xs);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: var(--spacing-xl) 0 var(--spacing-md);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .footer-section h3 {
+            color: var(--accent-yellow);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .footer-links a {
+            color: var(--white);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background-color: var(--accent-yellow);
+            color: var(--black);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: var(--spacing-md);
+            right: var(--spacing-md);
+            z-index: 1000;
+        }
+        
+        .chat-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-green);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .chat-button:hover {
+            background-color: var(--accent-yellow);
+            color: var(--black);
+            transform: scale(1.1);
+        }
+        
+        .chat-container {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 350px;
+            height: 500px;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .chat-header {
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: var(--spacing-sm);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chat-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: var(--spacing-sm);
+            overflow-y: auto;
+        }
+        
+        .message {
+            margin-bottom: var(--spacing-sm);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius);
+            max-width: 80%;
+        }
+        
+        .user-message {
+            background-color: var(--light-gray);
+            margin-left: auto;
+        }
+        
+        .bot-message {
+            background-color: var(--primary-green);
+            color: var(--white);
+        }
+        
+        .chat-input {
+            display: flex;
+            padding: var(--spacing-sm);
+            border-top: 1px solid var(--light-gray);
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: var(--spacing-xs);
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            margin-right: var(--spacing-xs);
+        }
+        
+        /* Accessibility Controls */
+        .accessibility-controls {
+            position: fixed;
+            top: 100px;
+            left: var(--spacing-md);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+        
+        .accessibility-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-green);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            box-shadow: var(--box-shadow);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--primary-green);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: var(--spacing-xl);
+                transition: var(--transition);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 0 0 var(--spacing-md) 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-items {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .chat-container {
+                width: 300px;
+                height: 400px;
+            }
+            
+            .accessibility-controls {
+                top: auto;
+                bottom: 80px;
+                left: var(--spacing-md);
+                flex-direction: row;
+            }
+        }
+        
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-accent {
+            color: var(--accent-yellow);
+        }
+        
+        .bg-primary {
+            background-color: var(--primary-green);
+            color: var(--white);
+        }
+        
+        .bg-light {
+            background-color: var(--light-gray);
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Accessibility Controls -->
+    <div class="accessibility-controls">
+        <button class="accessibility-btn" id="contrastToggle" title="Växla högkontrastläge">
+            <span aria-hidden="true">A</span>
+            <span class="sr-only">Växla högkontrastläge</span>
+        </button>
+        <button class="accessibility-btn" id="fontIncrease" title="Öka textstorlek">
+            <span aria-hidden="true">A+</span>
+            <span class="sr-only">Öka textstorlek</span>
+        </button>
+        <button class="accessibility-btn" id="fontDecrease" title="Minska textstorlek">
+            <span aria-hidden="true">A-</span>
+            <span class="sr-only">Minska textstorlek</span>
+        </button>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/60x60/0B3D2E/FFFFFF?text=LT" alt="Lejon TKD logotyp">
+                <div class="logo-text">Lejon TKD</div>
+            </div>
+            
+            <button class="nav-toggle" id="navToggle" aria-label="Öppna navigeringsmeny">
+                <span aria-hidden="true">☰</span>
+            </button>
+            
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item"><a href="#home" class="nav-link active">Startsida</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">Om Klubben</a></li>
+                    <li class="nav-item"><a href="#training" class="nav-link">Träning & Schema</a></li>
+                    <li class="nav-item"><a href="#membership" class="nav-link">Bli Medlem</a></li>
+                    <li class="nav-item"><a href="#shop" class="nav-link">Shop</a></li>
+                    <li class="nav-item"><a href="#events" class="nav-link">Evenemang & Nyheter</a></li>
+                    <li class="nav-item"><a href="#coaches" class="nav-link">Tränare</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Kontakt</a></li>
+                    <li class="nav-item"><a href="#login" class="nav-link">Logga in</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container hero-content">
+                <h1>Lejon TKD - Taekwondo i Hammarkullen</h1>
+                <p>Välkommen till Göteborgs främsta Taekwondoklubb! Vi erbjuder träning för alla åldrar och nivåer i en positiv och stödjande miljö.</p>
+                <div class="hero-buttons">
+                    <a href="#membership" class="btn">Bli medlem</a>
+                    <a href="#training" class="btn btn-secondary">Se schema</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Contact -->
+        <section class="quick-contact">
+            <div class="container">
+                <div class="contact-items">
+                    <div class="contact-item">
+                        <div class="contact-icon" aria-hidden="true">📞</div>
+                        <div>
+                            <strong>Telefon:</strong><br>
+                            <a href="tel:+46762612277">+46 76 261 22 77</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon" aria-hidden="true">📍</div>
+                        <div>
+                            <strong>Adress:</strong><br>
+                            Blixtgatan 3, 424 67 Angered
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon" aria-hidden="true">🕒</div>
+                        <div>
+                            <strong>Öppettider:</strong><br>
+                            Mån-Fre: 16:00-21:00, Sön: 16:00-21:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="section features" id="about">
+            <div class="container">
+                <h2 class="section-title">Varför välja Lejon TKD?</h2>
+                <div class="feature-grid">
+                    <div class="card">
+                        <h3>Erfarenhet sedan 1999</h3>
+                        <p>Med över 20 års erfarenhet är vi en etablerad klubb med gedigen kunskap om Taekwondo och träning.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Tävlingsinriktad</h3>
+                        <p>Vi deltar regelbundet i tävlingar på både nationell och internationell nivå och har fostrat många framgångsrika atleter.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Starkt community</h3>
+                        <p>Vi är mer än bara en klubb - vi är en familj. Vårt starka community stöttar varandra både på och utanför mattan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schedule Section -->
+        <section class="section schedule" id="training">
+            <div class="container">
+                <h2 class="section-title">Vårt schema</h2>
+                <div class="schedule-container">
+                    <div class="schedule-day">
+                        <h3>Måndag</h3>
+                        <p><strong>Barn (6-12 år)</strong><br>16:00 - 17:00</p>
+                        <p><strong>Ungdom (13-17 år)</strong><br>17:30 - 18:30</p>
+                        <p><strong>Vuxna (18+ år)</strong><br>19:00 - 20:30</p>
+                    </div>
+                    <div class="schedule-day">
+                        <h3>Tisdag</h3>
+                        <p><strong>Barn (6-12 år)</strong><br>16:00 - 17:00</p>
+                        <p><strong>Ungdom (13-17 år)</strong><br>17:30 - 18:30</p>
+                        <p><strong>Vuxna (18+ år)</strong><br>19:00 - 20:30</p>
+                    </div>
+                    <div class="schedule-day">
+                        <h3>Onsdag</h3>
+                        <p><strong>Barn (6-12 år)</strong><br>16:00 - 17:00</p>
+                        <p><strong>Ungdom (13-17 år)</strong><br>17:30 - 18:30</p>
+                        <p><strong>Vuxna (18+ år)</strong><br>19:00 - 20:30</p>
+                    </div>
+                    <div class="schedule-day">
+                        <h3>Torsdag</h3>
+                        <p><strong>Barn (6-12 år)</strong><br>16:00 - 17:00</p>
+                        <p><strong>Ungdom (13-17 år)</strong><br>17:30 - 18:30</p>
+                        <p><strong>Vuxna (18+ år)</strong><br>19:00 - 20:30</p>
+                    </div>
+                    <div class="schedule-day">
+                        <h3>Fredag</h3>
+                        <p><strong>Barn (6-12 år)</strong><br>16:00 - 17:00</p>
+                        <p><strong>Ungdom (13-17 år)</strong><br>17:30 - 18:30</p>
+                        <p><strong>Vuxna (18+ år)</strong><br>19:00 - 20:30</p>
+                    </div>
+                    <div class="schedule-day">
+                        <h3>Söndag</h3>
+                        <p><strong>Familjeträning</strong><br>16:00 - 17:30</p>
+                        <p><strong>Teknikträning</strong><br>18:00 - 19:30</p>
+                    </div>
+                </div>
+                <div class="text-center" style="margin-top: var(--spacing-lg);">
+                    <a href="#membership" class="btn">Anmäl dig till träning</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Membership Section -->
+        <section class="section bg-primary" id="membership">
+            <div class="container">
+                <h2 class="section-title" style="color: var(--white);">Bli medlem idag!</h2>
+                <div class="feature-grid">
+                    <div class="card">
+                        <h3>Barn & Ungdom</h3>
+                        <p><strong>Pris: 300 kr/månad</strong></p>
+                        <ul>
+                            <li>2 träningar per vecka</li>
+                            <li>Graderingar ingår</li>
+                            <li>Klubbtröja ingår</li>
+                        </ul>
+                        <a href="#register" class="btn" style="margin-top: var(--spacing-sm);">Anmäl dig</a>
+                    </div>
+                    <div class="card">
+                        <h3>Vuxna</h3>
+                        <p><strong>Pris: 400 kr/månad</strong></p>
+                        <ul>
+                            <li>Obegränsade träningar</li>
+                            <li>Graderingar ingår</li>
+                            <li>Fri tillgång till gym</li>
+                        </ul>
+                        <a href="#register" class="btn" style="margin-top: var(--spacing-sm);">Anmäl dig</a>
+                    </div>
+                    <div class="card">
+                        <h3>Familj</h3>
+                        <p><strong>Pris: 600 kr/månad</strong></p>
+                        <ul>
+                            <li>För hela familjen</li>
+                            <li>Max 2 vuxna + 3 barn</li>
+                            <li>Alla förmåner ingår</li>
+                        </ul>
+                        <a href="#register" class="btn" style="margin-top: var(--spacing-sm);">Anmäl dig</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Lejon TKD</h3>
+                    <p>WTF Lejon Taekwondo i Hammarkullen, Göteborg. Grundad 1999.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Besök vår Facebook-sida">
+                            <span aria-hidden="true">f</span>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Besök vår Instagram-sida">
+                            <span aria-hidden="true">📷</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <ul class="footer-links">
+                        <li><strong>Adress:</strong> Blixtgatan 3, 424 67 Angered</li>
+                        <li><strong>Telefon:</strong> <a href="tel:+46762612277">+46 76 261 22 77</a></li>
+                        <li><strong>E-post:</strong> <a href="mailto:info@lejontkd.se">info@lejontkd.se</a></li>
+                        <li><strong>Manager:</strong> Ahmed Talabani</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Snabblänkar</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Startsida</a></li>
+                        <li><a href="#about">Om klubben</a></li>
+                        <li><a href="#training">Schema</a></li>
+                        <li><a href="#membership">Bli medlem</a></li>
+                        <li><a href="#contact">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Öppettider</h3>
+                    <ul class="footer-links">
+                        <li>Måndag-Fredag: 16:00-21:00</li>
+                        <li>Lördag: Stängt</li>
+                        <li>Söndag: 16:00-21:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Lejon TKD. Alla rättigheter förbehållna.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        <div class="chat-button" id="chatToggle" aria-label="Öppna chatt">
+            <span aria-hidden="true">💬</span>
+        </div>
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-header">
+                <h4>Lejon TKD Assistans</h4>
+                <button class="chat-close" id="chatClose" aria-label="Stäng chatt">✕</button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    Hej! Jag är Lejon TKD's AI-assistent. Hur kan jag hjälpa dig idag?
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Skriv ditt meddelande..." aria-label="Skriv ditt meddelande">
+                <button id="chatSend" class="btn">Skicka</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Chat Widget Functionality
+        const chatToggle = document.getElementById('chatToggle');
+        const chatContainer = document.getElementById('chatContainer');
+        const chatClose = document.getElementById('chatClose');
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const chatSend = document.getElementById('chatSend');
+        
+        chatToggle.addEventListener('click', () => {
+            chatContainer.style.display = 'flex';
+        });
+        
+        chatClose.addEventListener('click', () => {
+            chatContainer.style.display = 'none';
+        });
+        
+        // Simple FAQ responses in Swedish
+        const faqResponses = {
+            'pris': 'Våra priser är: Barn/Ungdom 300 kr/mån, Vuxna 400 kr/mån, Familj 600 kr/mån. Alla priser inkluderar graderingar och klubbtröja.',
+            'priser': 'Våra priser är: Barn/Ungdom 300 kr/mån, Vuxna 400 kr/mån, Familj 600 kr/mån. Alla priser inkluderar graderingar och klubbtröja.',
+            'kostnad': 'Våra priser är: Barn/Ungdom 300 kr/mån, Vuxna 400 kr/mån, Familj 600 kr/mån. Alla priser inkluderar graderingar och klubbtröja.',
+            'tid': 'Vi har träning måndag-fredag 16:00-21:00 och söndag 16:00-21:00. Se vårt fullständiga schema på "Träning & Schema"-sidan.',
+            'tider': 'Vi har träning måndag-fredag 16:00-21:00 och söndag 16:00-21:00. Se vårt fullständiga schema på "Träning & Schema"-sidan.',
+            'schema': 'Vi har träning måndag-fredag 16:00-21:00 och söndag 16:00-21:00. Se vårt fullständiga schema på "Träning & Schema"-sidan.',
+            'anmäl': 'För att anmäla dig, gå till "Bli Medlem"-sidan och fyll i formuläret. Du kan också ringa oss på 076-261 22 77.',
+            'anmälan': 'För att anmäla dig, gå till "Bli Medlem"-sidan och fyll i formuläret. Du kan också ringa oss på 076-261 22 77.',
+            'medlem': 'För att anmäla dig, gå till "Bli Medlem"-sidan och fyll i formuläret. Du kan också ringa oss på 076-261 22 77.',
+            'merch': 'Vi säljer klubbtröjor, hoodies, byxor och mer. Besök vår shop för att se hela utbudet!',
+            'shop': 'Vi säljer klubbtröjor, hoodies, byxor och mer. Besök vår shop för att se hela utbudet!',
+            'varor': 'Vi säljer klubbtröjor, hoodies, byxor och mer. Besök vår shop för att se hela utbudet!',
+            'event': 'Vi har regelbundna evenemang och tävlingar. Kolla "Evenemang & Nyheter"-sidan för kommande aktiviteter.',
+            'evenemang': 'Vi har regelbundna evenemang och tävlingar. Kolla "Evenemang & Nyheter"-sidan för kommande aktiviteter.',
+            'tävling': 'Vi har regelbundna evenemang och tävlingar. Kolla "Evenemang & Nyheter"-sidan för kommande aktiviteter.',
+            'adress': 'Vi finns på Blixtgatan 3, 424 67 Angered. Se "Kontakt"-sidan för karta och mer information.',
+            'plats': 'Vi finns på Blixtgatan 3, 424 67 Angered. Se "Kontakt"-sidan för karta och mer information.',
+            'hitta': 'Vi finns på Blixtgatan 3, 424 67 Angered. Se "Kontakt"-sidan för karta och mer information.',
+            'telefon': 'Du kan nå oss på 076-261 22 77. Våra öppettider är mån-fre 16:00-21:00 och söndag 16:00-21:00.',
+            'ringa': 'Du kan nå oss på 076-261 22 77. Våra öppettider är mån-fre 16:00-21:00 och söndag 16:00-21:00.',
+            'mail': 'Du kan skicka e-post till info@lejontkd.se. Vi svarar vanligtvis inom 24 timmar.',
+            'epost': 'Du kan skicka e-post till info@lejontkd.se. Vi svarar vanligtvis inom 24 timmar.',
+            'email': 'Du kan skicka e-post till info@lejontkd.se. Vi svarar vanligtvis inom 24 timmar.',
+            'ålder': 'Vi har träning för alla åldrar! Barn från 6 år, ungdomar 13-17 år och vuxna 18+ år. Familjeträning på söndagar.',
+            'barn': 'Vi har träning för alla åldrar! Barn från 6 år, ungdomar 13-17 år och vuxna 18+ år. Familjeträning på söndagar.',
+            'vuxen': 'Vi har träning för alla åldrar! Barn från 6 år, ungdomar 13-17 år och vuxna 18+ år. Familjeträning på söndagar.',
+            'nybörjare': 'Vi har grupper för alla nivåer, inklusive nybörjare! Kom och prova på - första träningen är gratis!',
+            'prova': 'Vi har grupper för alla nivåer, inklusive nybörjare! Kom och prova på - första träningen är gratis!',
+            'testa': 'Vi har grupper för alla nivåer, inklusive nybörjare! Kom och prova på - första träningen är gratis!',
+            'gratis': 'Ja, första träningen är gratis! Kom och prova på så ser vi om Taekwondo är något för dig.',
+            'prövning': 'Ja, första träningen är gratis! Kom och prova på så ser vi om Taekwondo är något för dig.',
+            'hälsa': 'Taekwondo är utmärkt för både fysisk och mental hälsa. Det förbättrar styrka, flexibilitet, fokus och självförtroende.',
+            'fördelar': 'Taekwondo är utmärkt för både fysisk och mental hälsa. Det förbättrar styrka, flexibilitet, fokus och självförtroende.',
+            'tränare': 'Vi har certifierade och erfarna tränare. Se "Tränare"-sidan för att läsa mer om vårt team.',
+            'coach': 'Vi har certifierade och erfarna tränare. Se "Tränare"-sidan för att läsa mer om vårt team.',
+            'ahmed': 'Ahmed Talabani är vår klubbmanager och huvudtränare. Han har över 20 års erfarenhet av Taekwondo.',
+            'talabani': 'Ahmed Talabani är vår klubbmanager och huvudtränare. Han har över 20 års erfarenhet av Taekwondo.',
+            'bälte': 'Vi följer WTF:s gradingssystem med färgade bälten. Nybörjare börjar med vitt bälte.',
+            'gradering': 'Vi följer WTF:s gradingssystem med färgade bälten. Nybörjare börjar med vitt bälte.',
+            'bälten': 'Vi följer WTF:s gradingssystem med färgade bälten. Nybörjare börjar med vitt bälte.',
+            'utrustning': 'För första träningen räcker det med bekväma kläder. Senare behöver du Dobok (träningsdräkt) och skyddsutrustning.',
+            'kläder': 'För första träningen räcker det med bekväma kläder. Senare behöver du Dobok (träningsdräkt) och skyddsutrustning.',
+            'dobok': 'För första träningen räcker det med bekväma kläder. Senare behöver du Dobok (träningsdräkt) och skyddsutrustning.',
+            'betalning': 'Du kan betala med kort, Swish eller banköverföring. Medlemsavgiften dras automatiskt varje månad.',
+            'swish': 'Du kan betala med kort, Swish eller banköverföring. Medlemsavgiften dras automatiskt varje månad.',
+            'kort': 'Du kan betala med kort, Swish eller banköverföring. Medlemsavgiften dras automatiskt varje månad.',
+            'avsluta': 'Medlemskapet sägs upp med en månads uppsägningstid. Kontakta oss för att avsluta ditt medlemskap.',
+            'uppsägning': 'Medlemskapet sägs upp med en månads uppsägningstid. Kontakta oss för att avsluta ditt medlemskap.',
+            'default': 'Jag förstår inte riktigt din fråga. Du kan ringa oss på 076-261 22 77 eller maila info@lejontkd.se för personlig hjälp.'
+        };
+        
+        function getBotResponse(message) {
+            const lowerMessage = message.toLowerCase();
+            
+            for (const keyword in faqResponses) {
+                if (lowerMessage.includes(keyword)) {
+                    return faqResponses[keyword];
+                }
+            }
+            
+            return faqResponses['default'];
+        }
+        
+        function addMessage(message, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+            messageDiv.textContent = message;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        chatSend.addEventListener('click', () => {
+            const message = chatInput.value.trim();
+            if (message) {
+                addMessage(message, true);
+                chatInput.value = '';
+                
+                // Simulate typing delay
+                setTimeout(() => {
+                    const response = getBotResponse(message);
+                    addMessage(response, false);
+                }, 1000);
+            }
+        });
+        
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                chatSend.click();
+            }
+        });
+        
+        // Accessibility Features
+        const contrastToggle = document.getElementById('contrastToggle');
+        const fontIncrease = document.getElementById('fontIncrease');
+        const fontDecrease = document.getElementById('fontDecrease');
+        
+        contrastToggle.addEventListener('click', () => {
+            document.body.classList.toggle('high-contrast');
+        });
+        
+        fontIncrease.addEventListener('click', () => {
+            const currentSize = parseFloat(getComputedStyle(document.body).fontSize);
+            document.body.style.fontSize = (currentSize * 1.1) + 'px';
+        });
+        
+        fontDecrease.addEventListener('click', () => {
+            const currentSize = parseFloat(getComputedStyle(document.body).fontSize);
+            document.body.style.fontSize = (currentSize * 0.9) + 'px';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrering - Lejon TKD</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🥋</span>
+                    <span class="logo-text">Lejon TKD</span>
+                </a>
+                
+                <nav class="nav" id="main-nav">
+                    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+                        <span class="hamburger"></span>
+                        <span class="sr-only">Meny</span>
+                    </button>
+                    
+                    <ul class="nav-menu" id="nav-menu">
+                        <li><a href="index.html" class="nav-link">Hem</a></li>
+                        <li><a href="om-klubben.html" class="nav-link">Om Klubben</a></li>
+                        <li><a href="traningsschema.html" class="nav-link">Träningstider & Schema</a></li>
+                        <li><a href="priser.html" class="nav-link">Priser & Medlemskap</a></li>
+                        <li><a href="registrering.html" class="nav-link active">Registrering</a></li>
+                        <li><a href="shop.html" class="nav-link">Shop / Merch</a></li>
+                        <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Registrering</h1>
+                <p class="page-subtitle">Bli medlem i Lejon TKD idag</p>
+            </div>
+        </section>
+
+        <!-- Registration Form -->
+        <section class="content-section">
+            <div class="container">
+                <div class="registration-form-container">
+                    <form id="registration-form" class="registration-form" novalidate>
+                        <div class="form-section">
+                            <h2 class="form-section-title">Personuppgifter</h2>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="first-name" class="form-label">Förnamn *</label>
+                                    <input type="text" id="first-name" name="first-name" class="form-input" required>
+                                    <div class="form-error" id="first-name-error"></div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="last-name" class="form-label">Efternamn *</label>
+                                    <input type="text" id="last-name" name="last-name" class="form-input" required>
+                                    <div class="form-error" id="last-name-error"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="personal-number" class="form-label">Personnummer *</label>
+                                    <input type="text" id="personal-number" name="personal-number" class="form-input" placeholder="YYYYMMDD-XXXX" required>
+                                    <div class="form-error" id="personal-number-error"></div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone" class="form-label">Telefon *</label>
+                                    <input type="tel" id="phone" name="phone" class="form-input" required>
+                                    <div class="form-error" id="phone-error"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="form-label">E-post *</label>
+                                <input type="email" id="email" name="email" class="form-input" required>
+                                <div class="form-error" id="email-error"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2 class="form-section-title">Adressuppgifter</h2>
+                            
+                            <div class="form-group">
+                                <label for="address" class="form-label">Gatuadress *</label>
+                                <input type="text" id="address" name="address" class="form-input" required>
+                                <div class="form-error" id="address-error"></div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="postal-code" class="form-label">Postnummer *</label>
+                                    <input type="text" id="postal-code" name="postal-code" class="form-input" required>
+                                    <div class="form-error" id="postal-code-error"></div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="city" class="form-label">Ort *</label>
+                                    <input type="text" id="city" name="city" class="form-input" required>
+                                    <div class="form-error" id="city-error"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2 class="form-section-title">Medlemskap</h2>
+                            
+                            <div class="form-group">
+                                <label for="membership-type" class="form-label">Medlemskapstyp *</label>
+                                <select id="membership-type" name="membership-type" class="form-select" required>
+                                    <option value="">Välj medlemskap</option>
+                                    <option value="child">Barn 6-12 år (300 kr/mån)</option>
+                                    <option value="youth">Ungdom 13-17 år (350 kr/mån)</option>
+                                    <option value="adult">Vuxen 18+ år (400 kr/mån)</option>
+                                    <option value="family-2">2 Familjemedlemmar (600 kr/mån)</option>
+                                    <option value="family-3">3 Familjemedlemmar (800 kr/mån)</option>
+                                    <option value="family-4">4+ Familjemedlemmar (950 kr/mån)</option>
+                                </select>
+                                <div class="form-error" id="membership-type-error"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Önskade träningstider</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="training-times" value="monday-17">
+                                        <span class="checkmark"></span>
+                                        Måndagar 17:00-18:00 (Barn)
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="training-times" value="monday-18">
+                                        <span class="checkmark"></span>
+                                        Måndagar 18:00-19:00 (Barn)
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="training-times" value="monday-19">
+                                        <span class="checkmark"></span>
+                                        Måndagar 19:00-20:30 (Vuxna)
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="training-times" value="tuesday-17">
+                                        <span class="checkmark"></span>
+                                        Tisdagar 17:30-18:30 (Ungdomar)
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="training-times" value="tuesday-18">
+                                        <span class="checkmark"></span>
+                                        Tisdagar 18:30-20:00 (Avancerad)
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="training-times" value="wednesday-17">
+                                        <span class="checkmark"></span>
+                                        Onsdagar 17:00-18:00 (Barn)
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="training-times" value="wednesday-18">
+                                        <span class="checkmark"></span>
+                                        Onsdagar 18:00-19:30 (Ungdom/Vuxna)
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="training-times" value="friday-17">
+                                        <span class="checkmark"></span>
+                                        Fredagar 17:30-19:00 (Alla åldrar)
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="experience" class="form-label">Tidigare erfarenhet</label>
+                                <select id="experience" name="experience" class="form-select">
+                                    <option value="">Välj erfarenhetsnivå</option>
+                                    <option value="none">Ingen tidigare erfarenhet</option>
+                                    <option value="beginner">Nybörjare (mindre än 1 år)</option>
+                                    <option value="intermediate">Mellan (1-3 år)</option>
+                                    <option value="advanced">Avancerad (3+ år)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group" id="belt-level-group" style="display: none;">
+                                <label for="belt-level" class="form-label">Nuvarande bälte</label>
+                                <select id="belt-level" name="belt-level" class="form-select">
+                                    <option value="">Välj bälte</option>
+                                    <option value="white">Vitt</option>
+                                    <option value="yellow">Gult</option>
+                                    <option value="green">Grönt</option>
+                                    <option value="blue">Blått</option>
+                                    <option value="red">Rött</option>
+                                    <option value="black">Svart</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2 class="form-section-title">Hälsouppgifter</h2>
+                            
+                            <div class="form-group">
+                                <label for="health-issues" class="form-label">Hälsoproblem/skador vi bör känna till</label>
+                                <textarea id="health-issues" name="health-issues" class="form-textarea" rows="4" placeholder="Beskriv eventuella hälsoproblem, skador eller allergier..."></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="emergency-contact" class="form-label">Kontaktperson vid akut händelse *</label>
+                                <input type="text" id="emergency-contact" name="emergency-contact" class="form-input" required>
+                                <div class="form-error" id="emergency-contact-error"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="emergency-phone" class="form-label">Telefon till kontaktperson *</label>
+                                <input type="tel" id="emergency-phone" name="emergency-phone" class="form-input" required>
+                                <div class="form-error" id="emergency-phone-error"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2 class="form-section-title">Godkännanden</h2>
+                            
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="terms" name="terms" required>
+                                    <span class="checkmark"></span>
+                                    Jag godkänner <a href="#" class="link">medlemsvillkoren</a> *
+                                </label>
+                                <div class="form-error" id="terms-error"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="privacy" name="privacy" required>
+                                    <span class="checkmark"></span>
+                                    Jag godkänner <a href="#" class="link">integritetspolicyn</a> *
+                                </label>
+                                <div class="form-error" id="privacy-error"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="photo" name="photo">
+                                    <span class="checkmark"></span>
+                                    Jag tillåter att fotos på mig/mina barn används för klubben marknadsföring
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-large">Skicka Registrering</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Success Modal -->
+    <div class="modal" id="success-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Tack för din registrering!</h2>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="success-icon">🎉</div>
+                <p>Din registrering har mottagits! Vi kommer att kontakta dig inom 24 timmar för att bekräfta ditt medlemskap och boka in en första träning.</p>
+                <p>Välkommen till Lejon TKD!</p>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-primary" id="modal-confirm">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Lejon TKD</h3>
+                    <p class="footer-text">Taekwondoklubb i Hammarkullen, Göteborg för alla åldrar och nivåer.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Kontakt</h3>
+                    <address class="footer-address">
+                        <p>Blixtgatan 3, 424 67 Angered, Sverige</p>
+                        <p>Telefon: <a href="tel:+46762612277">+46 76 261 22 77</a></p>
+                        <p>Klubbansvarig: Ahmed Talabani</p>
+                    </address>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Öppettider</h3>
+                    <p>Måndag–Fredag: 16:00–21:00</p>
+                    <p>Söndag: 16:00–21:00</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Följ Oss</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">Facebook</a>
+                        <a href="#" class="social-link" aria-label="Instagram">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Lejon TKD. Alla rättigheter förbehållna.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Chat Widget -->
+    <div class="chat-widget" id="chat-widget">
+        <button class="chat-toggle" id="chat-toggle" aria-expanded="false" aria-controls="chat-container">
+            <span class="chat-icon">💬</span>
+            <span class="sr-only">Chatta med oss</span>
+        </button>
+        
+        <div class="chat-container" id="chat-container">
+            <div class="chat-header">
+                <h3>Lejon TKD Assist</h3>
+                <button class="chat-close" id="chat-close" aria-label="Stäng chat">
+                    <span>&times;</span>
+                </button>
+            </div>
+            
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot-message">
+                    <p>Hej! Jag är Lejon TKD assistenten. Hur kan jag hjälpa dig idag?</p>
+                </div>
+            </div>
+            
+            <div class="chat-input-container">
+                <input type="text" class="chat-input" id="chat-input" placeholder="Skriv ditt meddelande..." aria-label="Skriv ditt meddelande">
+                <button class="chat-send" id="chat-send" aria-label="Skicka meddelande">
+                    <span>Skicka</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/registration.js"></script>
+</body>
+</html>
