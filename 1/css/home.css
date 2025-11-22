@@ -13,10 +13,15 @@ a {
 /* Hero Section */
 .hero {
   background-color: var(--color-surface);
-  padding: 6rem 0;
+  height: 100vh; /* occupy full viewport height */
+  padding: 0; /* remove vertical padding */
   text-align: center;
   position: relative; /* added for overlay and z-index layering */
   overflow: hidden; /* prevent overflow */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 .hero-background {
   position: absolute;
@@ -42,7 +47,7 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(11, 61, 46, 0.6); /* dark green transparent overlay */
+  background-color: rgba(11, 61, 46, 0.75); /* increased opacity for better contrast */
   z-index: 1;
   pointer-events: none;
 }
@@ -51,15 +56,19 @@ a {
   z-index: 2; /* above the overlay */
 }
 .hero-title {
-  font-size: 3rem;
+  font-size: 2.25rem; /* reduced size */
   margin-bottom: 1rem;
   color: var(--color-ui-white);
+  font-family: 'Montserrat', sans-serif;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.7);
 }
 .hero-subtitle {
-  font-size: 1.25rem;
+  font-size: 1rem; /* reduced size */
   max-width: 600px;
   margin: 0 auto 2rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'Montserrat', sans-serif;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
 }
 .hero-actions {
   display: flex;
@@ -67,10 +76,30 @@ a {
   justify-content: center;
   flex-wrap: wrap;
 }
+.hero-actions .btn-primary,
+.hero-actions .btn-secondary {
+  text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  transition: box-shadow 0.3s ease;
+  font-size: 0.9rem; /* slightly smaller button text */
+}
+.hero-actions .btn-primary {
+  text-shadow: none;
+}
+.hero-actions .btn-primary:hover,
+.hero-actions .btn-secondary:hover {
+  box-shadow: 0 6px 14px rgba(0,0,0,0.7);
+}
 
 /* Features Section */
 .features {
   padding: var(--section-padding);
+}
+
+/* Navbar Links Clean and Smaller */
+.nav-link {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
 }
 
 .features-grid {

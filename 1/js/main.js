@@ -106,7 +106,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (backgrounds.length < 2) return;
 
         const images = [
-            '1/images/mainPic.jpg',
             '1/images/mainPic2.jpg',
             '1/images/mainPic3.jpg',
             '1/images/mainPic4.jpg',
