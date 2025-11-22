@@ -1,3 +1,15 @@
+/* Footer Section */
+.wazGo {
+  text-align: center;
+}
+
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
 /* Hero Section */
 .hero {
   background-color: var(--color-surface);

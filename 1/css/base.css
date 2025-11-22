@@ -39,6 +39,9 @@ body {
   color: var(--color-ui-white);
   background-color: var(--color-bg);
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .container {
@@ -250,53 +253,81 @@ p {
 
 /* Footer */
 .footer {
-  background-color: var(--color-surface);
-  padding: 4rem 0 2rem;
+  background: linear-gradient(180deg, #022b22 0%, #011f17 100%);
+  padding: 5rem 0 0;
+  box-shadow: inset 0 10px 10px -10px rgba(0,0,0,0.7);
+  border-top: 3px solid var(--color-accent);
+  transition: background-color 0.5s ease;
 }
 
 .footer-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 2rem;
+}
+
+.footer-section {
+  padding-right: 1rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-section:last-child {
+  border-right: none;
+  padding-right: 0;
 }
 
 .footer-title {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  margin-bottom: 1.2rem;
   color: var(--color-accent);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .footer-text {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .footer-address p {
-  margin-bottom: 0.5rem;
-  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.6rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
 }
 
 .social-links {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .social-link {
   color: var(--color-ui-white);
   text-decoration: none;
-  transition: color 0.3s ease;
+  font-weight: var(--font-weight-semibold);
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-link:hover,
 .social-link:focus {
   color: var(--color-accent);
+  transform: translateY(-3px);
 }
 
-.footer-bottom {
-  border-top: 1px solid var(--color-muted);
-  padding-top: 2rem;
+.wazGo {
   text-align: center;
-  color: rgba(255, 255, 255, 0.6);
+
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 /* Chat Widget */
