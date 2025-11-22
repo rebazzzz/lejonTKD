@@ -53,108 +53,88 @@
         </section>
 
         <!-- Weekly Schedule -->
-        <section class="content-section">
-            <div class="container">
-                <h2 class="section-title">Veckoschema</h2>
-                <div class="schedule-table-container">
-                    <table class="schedule-table">
-                        <thead>
-                            <tr>
-                                <th>Dag</th>
-                                <th>Tid</th>
-                                <th>Grupp</th>
-                                <th>Instruktör</th>
-                                <th>Nivå</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Måndag</td>
-                                <td>17:00 - 18:00</td>
-                                <td>Barn 6-9 år</td>
-                                <td>Maria</td>
-                                <td><span class="level-badge beginner">Nybörjare</span></td>
-                            </tr>
-                            <tr>
-                                <td>Måndag</td>
-                                <td>18:00 - 19:00</td>
-                                <td>Barn 10-12 år</td>
-                                <td>Maria</td>
-                                <td><span class="level-badge intermediate">Mellan</span></td>
-                            </tr>
-                            <tr>
-                                <td>Måndag</td>
-                                <td>19:00 - 20:30</td>
-                                <td>Vuxna</td>
-                                <td>Ahmed</td>
-                                <td><span class="level-badge all-levels">Alla nivåer</span></td>
-                            </tr>
-                            <tr>
-                                <td>Tisdag</td>
-                                <td>17:30 - 18:30</td>
-                                <td>Ungdomar 13-17 år</td>
-                                <td>Ahmed</td>
-                                <td><span class="level-badge intermediate">Mellan</span></td>
-                            </tr>
-                            <tr>
-                                <td>Tisdag</td>
-                                <td>18:30 - 20:00</td>
-                                <td>Avancerad träning</td>
-                                <td>Ahmed</td>
-                                <td><span class="level-badge advanced">Avancerad</span></td>
-                            </tr>
-                            <tr>
-                                <td>Onsdag</td>
-                                <td>17:00 - 18:00</td>
-                                <td>Barn 6-12 år</td>
-                                <td>Maria</td>
-                                <td><span class="level-badge all-levels">Alla nivåer</span></td>
-                            </tr>
-                            <tr>
-                                <td>Onsdag</td>
-                                <td>18:00 - 19:30</td>
-                                <td>Ungdomar & Vuxna</td>
-                                <td>Ahmed</td>
-                                <td><span class="level-badge intermediate">Mellan</span></td>
-                            </tr>
-                            <tr>
-                                <td>Torsdag</td>
-                                <td>17:30 - 18:30</td>
-                                <td>Familjeträning</td>
-                                <td>Maria</td>
-                                <td><span class="level-badge beginner">Nybörjare</span></td>
-                            </tr>
-                            <tr>
-                                <td>Torsdag</td>
-                                <td>18:30 - 20:00</td>
-                                <td>Teknikträning</td>
-                                <td>Ahmed</td>
-                                <td><span class="level-badge advanced">Avancerad</span></td>
-                            </tr>
-                            <tr>
-                                <td>Fredag</td>
-                                <td>17:30 - 19:00</td>
-                                <td>Alla åldrar</td>
-                                <td>Ahmed</td>
-                                <td><span class="level-badge all-levels">Alla nivåer</span></td>
-                            </tr>
-                            <tr>
-                                <td>Lördag</td>
-                                <td>10:00 - 11:30</td>
-                                <td>Tävlingsförberedelse</td>
-                                <td>Ahmed</td>
-                                <td><span class="level-badge advanced">Avancerad</span></td>
-                            </tr>
-                            <tr>
-                                <td>Söndag</td>
-                                <td>16:00 - 17:30</td>
-                                <td>Öppen träning</td>
-                                <td>Maria</td>
-                                <td><span class="level-badge all-levels">Alla nivåer</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
+        <section class="content-section schedule">
+            <div class="container schedule-container">
+
+                <div class="schedule-day">
+                    <h3>Måndag</h3>
+                    <div class="schedule-entry">
+                        <p>Barn 6-9 år</p>
+                        <p>17:00 - 18:00</p>
+                        <p><span class="level-badge beginner">Nybörjare</span></p>
+                    </div>
+                    <div class="schedule-entry">
+                        <p>Barn 10-12 år</p>
+                        <p>18:00 - 19:00</p>
+                        <p><span class="level-badge intermediate">Mellan</span></p>
+                    </div>
+                    <div class="schedule-entry">
+                        <p>Vuxna</p>
+                        <p>19:00 - 20:30</p>
+                        <p><span class="level-badge all-levels">Alla nivåer</span></p>
+                    </div>
                 </div>
+
+                <div class="schedule-day">
+                    <h3>Tisdag</h3>
+                    <div class="schedule-entry">
+                        <p>Ungdomar 13-17 år</p>
+                        <p>17:30 - 18:30</p>
+                        <p><span class="level-badge intermediate">Mellan</span></p>
+                    </div>
+                    <div class="schedule-entry">
+                        <p>Avancerad träning</p>
+                        <p>18:30 - 20:00</p>
+                        <p><span class="level-badge advanced">Avancerad</span></p>
+                    </div>
+                </div>
+
+                <div class="schedule-day">
+                    <h3>Onsdag</h3>
+                    <div class="schedule-entry">
+                        <p>Barn 6-12 år</p>
+                        <p>17:00 - 18:00</p>
+                        <p><span class="level-badge all-levels">Alla nivåer</span></p>
+                    </div>
+                    <div class="schedule-entry">
+                        <p>Ungdomar & Vuxna</p>
+                        <p>18:00 - 19:30</p>
+                        <p><span class="level-badge intermediate">Mellan</span></p>
+                    </div>
+                </div>
+
+                <div class="schedule-day">
+                    <h3>Torsdag</h3>
+                    <div class="schedule-entry">
+                        <p>Familjeträning</p>
+                        <p>17:30 - 18:30</p>
+                        <p><span class="level-badge beginner">Nybörjare</span></p>
+                    </div>
+                    <div class="schedule-entry">
+                        <p>Teknikträning</p>
+                        <p>18:30 - 20:00</p>
+                        <p><span class="level-badge advanced">Avancerad</span></p>
+                    </div>
+                </div>
+
+                <div class="schedule-day">
+                    <h3>Fredag</h3>
+                    <div class="schedule-entry">
+                        <p>Alla åldrar</p>
+                        <p>17:30 - 19:00</p>
+                        <p><span class="level-badge all-levels">Alla nivåer</span></p>
+                    </div>
+                </div>
+
+                <div class="schedule-day">
+                    <h3>Söndag</h3>
+                    <div class="schedule-entry">
+                        <p>Öppen träning</p>
+                        <p>16:00 - 17:30</p>
+                        <p><span class="level-badge all-levels">Alla nivåer</span></p>
+                    </div>
+                </div>
+
             </div>
         </section>
 

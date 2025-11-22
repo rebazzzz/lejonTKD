@@ -1,3 +1,28 @@
+/* Schedule Section */
+.schedule {
+    background-color: var(--light-gray);
+}
+
+.schedule-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+}
+
+.schedule-day {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    text-align: center;
+}
+
+.schedule-day h3 {
+    color: var(--primary-green);
+    border-bottom: 2px solid var(--accent-yellow);
+    padding-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+}
+
 /* Schedule Table */
 .schedule-table-container {
     overflow-x: auto;
