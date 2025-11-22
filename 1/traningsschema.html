@@ -47,94 +47,67 @@
         <!-- Page Header -->
         <section class="page-header">
             <div class="container">
-                <h1 class="page-title">Träningstider & Schema</h1>
-                <p class="page-subtitle">Se våra träningstider för alla åldrar och nivåer</p>
+                   <h1 class="page-title">Träningstider & Grupper</h1>
+                <p class="page-subtitle">Se våra träningstider för alla åldrar och nivåer med tydliga grupper anpassade för barn, ungdomar och vuxna.</p>
             </div>
         </section>
 
         <!-- Weekly Schedule -->
-        <section class="content-section schedule">
-            <div class="container schedule-container">
+        <section class="section schedule" id="training">
+            <div class="container">
+                <!-- Filter by group -->
+                <div class="schedule-filter" style="text-align:center; margin-bottom: 1.5rem;">
+                    <label for="group-filter" style="color: var(--color-ui-white); font-weight: 600; margin-right: 0.5rem;">Filtrera på grupp:</label>
+                    <select id="group-filter" aria-label="Filtrera på grupp" style="padding: 0.5rem 1rem; border-radius: var(--radius); border: none; font-size: 1rem;">
+                        <option value="alla">Alla grupper</option>
+                        <option value="Barn">Barn</option>
+                        <option value="Ungdom">Ungdom</option>
+                        <option value="Vuxna">Vuxna</option>
+                        <option value="Familjeträning">Familjeträning</option>
+                        <option value="Teknikträning">Teknikträning</option>
+                        <option value="Avancerad">Avancerad</option>
+                        <option value="Öppen träning">Öppen träning</option>
+                        <option value="Alla åldrar">Alla åldrar</option>
+                    </select>
+                </div>
 
-                <div class="schedule-day">
-                    <h3>Måndag</h3>
-                    <div class="schedule-entry">
-                        <p>Barn 6-9 år</p>
-                        <p>17:00 - 18:00</p>
-                        <p><span class="level-badge beginner">Nybörjare</span></p>
+                <div class="schedule-container">
+                    <div class="schedule-day">
+                        <h3>Måndag</h3>
+                        <p><strong>Barn 6-9 år</strong><br>17:00 - 18:00</p>
+                        <p><strong>Barn 10-12 år</strong><br>18:00 - 19:00</p>
+                        <p><strong>Vuxna</strong><br>19:00 - 20:30</p>
                     </div>
-                    <div class="schedule-entry">
-                        <p>Barn 10-12 år</p>
-                        <p>18:00 - 19:00</p>
-                        <p><span class="level-badge intermediate">Mellan</span></p>
+                    <div class="schedule-day">
+                        <h3>Tisdag</h3>
+                        <p><strong>Ungdomar 13-17 år</strong><br>17:30 - 18:30</p>
+                        <p><strong>Avancerad träning</strong><br>18:30 - 20:00</p>
                     </div>
-                    <div class="schedule-entry">
-                        <p>Vuxna</p>
-                        <p>19:00 - 20:30</p>
-                        <p><span class="level-badge all-levels">Alla nivåer</span></p>
+                    <div class="schedule-day">
+                        <h3>Onsdag</h3>
+                        <p><strong>Barn 6-12 år</strong><br>17:00 - 18:00</p>
+                        <p><strong>Ungdomar & Vuxna</strong><br>18:00 - 19:30</p>
+                    </div>
+                    <div class="schedule-day">
+                        <h3>Torsdag</h3>
+                        <p><strong>Familjeträning</strong><br>17:30 - 18:30</p>
+                        <p><strong>Teknikträning</strong><br>18:30 - 20:00</p>
+                    </div>
+                    <div class="schedule-day">
+                        <h3>Fredag</h3>
+                        <p><strong>Alla åldrar</strong><br>17:30 - 19:00</p>
+                    </div>
+                    <div class="schedule-day">
+                        <h3>Söndag</h3>
+                        <p><strong>Öppen träning</strong><br>16:00 - 17:30</p>
                     </div>
                 </div>
 
-                <div class="schedule-day">
-                    <h3>Tisdag</h3>
-                    <div class="schedule-entry">
-                        <p>Ungdomar 13-17 år</p>
-                        <p>17:30 - 18:30</p>
-                        <p><span class="level-badge intermediate">Mellan</span></p>
-                    </div>
-                    <div class="schedule-entry">
-                        <p>Avancerad träning</p>
-                        <p>18:30 - 20:00</p>
-                        <p><span class="level-badge advanced">Avancerad</span></p>
-                    </div>
+                <!-- Repositioned button just below filter for better UX -->
+                <div class="text-center" style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1rem; align-items: center;">
+                    <a href="registrering.html" class="btn btn-primary">Anmäl dig till träning</a>
+                    <a href="priser.html" class="btn btn-secondary">Se priser & Medlemskap</a>
                 </div>
-
-                <div class="schedule-day">
-                    <h3>Onsdag</h3>
-                    <div class="schedule-entry">
-                        <p>Barn 6-12 år</p>
-                        <p>17:00 - 18:00</p>
-                        <p><span class="level-badge all-levels">Alla nivåer</span></p>
-                    </div>
-                    <div class="schedule-entry">
-                        <p>Ungdomar & Vuxna</p>
-                        <p>18:00 - 19:30</p>
-                        <p><span class="level-badge intermediate">Mellan</span></p>
-                    </div>
-                </div>
-
-                <div class="schedule-day">
-                    <h3>Torsdag</h3>
-                    <div class="schedule-entry">
-                        <p>Familjeträning</p>
-                        <p>17:30 - 18:30</p>
-                        <p><span class="level-badge beginner">Nybörjare</span></p>
-                    </div>
-                    <div class="schedule-entry">
-                        <p>Teknikträning</p>
-                        <p>18:30 - 20:00</p>
-                        <p><span class="level-badge advanced">Avancerad</span></p>
-                    </div>
-                </div>
-
-                <div class="schedule-day">
-                    <h3>Fredag</h3>
-                    <div class="schedule-entry">
-                        <p>Alla åldrar</p>
-                        <p>17:30 - 19:00</p>
-                        <p><span class="level-badge all-levels">Alla nivåer</span></p>
-                    </div>
-                </div>
-
-                <div class="schedule-day">
-                    <h3>Söndag</h3>
-                    <div class="schedule-entry">
-                        <p>Öppen träning</p>
-                        <p>16:00 - 17:30</p>
-                        <p><span class="level-badge all-levels">Alla nivåer</span></p>
-                    </div>
-                </div>
-
             </div>
         </section>
 
@@ -181,66 +154,7 @@
                 </div>
             </div>
         </section>
-
-        <!-- Special Events -->
-        <section class="content-section">
-            <div class="container">
-                <h2 class="section-title">Kommande Evenemang</h2>
-                <div class="events-timeline">
-                    <div class="event-item">
-                        <div class="event-date">
-                            <span class="event-day">15</span>
-                            <span class="event-month">OKT</span>
-                        </div>
-                        <div class="event-content">
-                            <h3 class="event-title">Gradprov - Hösten 2023</h3>
-                            <p class="event-description">Möjlighet att avancera till nästa bälte. Anmälan krävs.</p>
-                            <p class="event-time">Lördag 15 Oktober, 10:00-14:00</p>
-                        </div>
-                    </div>
-                    
-                    <div class="event-item">
-                        <div class="event-date">
-                            <span class="event-day">05</span>
-                            <span class="event-month">NOV</span>
-                        </div>
-                        <div class="event-content">
-                            <h3 class="event-title">Regional Tävling - Göteborg</h3>
-                            <p class="event-description">Delta i vår första tävling för säsongen. Öppen för alla medlemmar.</p>
-                            <p class="event-time">Söndag 5 November, 09:00-17:00</p>
-                        </div>
-                    </div>
-                    
-                    <div class="event-item">
-                        <div class="event-date">
-                            <span class="event-day">10</span>
-                            <span class="event-month">DEC</span>
-                        </div>
-                        <div class="event-content">
-                            <h3 class="event-title">Julavslutning</h3>
-                            <p class="event-description">Gemensam avslutning med mat, tävlingar och utmärkelser.</p>
-                            <p class="event-time">Söndag 10 December, 16:00-19:00</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Registration CTA -->
-        <section class="cta-section">
-            <div class="container">
-                <div class="cta-content">
-                    <h2 class="cta-title">Redo att börja träna?</h2>
-                    <p class="cta-description">Välkommen på en prova-på-lektion! Kontakta oss eller anmäl dig direkt.</p>
-                    <div class="cta-actions">
-                        <a href="registrering.html" class="btn btn-primary">Anmäl Dig Nu</a>
-                        <a href="kontakt.html" class="btn btn-secondary">Kontakta Oss</a>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -312,5 +226,6 @@
 
     <script src="js/main.js"></script>
     <script src="js/chat.js"></script>
+    <script src="js/schedule-filter.js"></script>
 </body>
 </html>
