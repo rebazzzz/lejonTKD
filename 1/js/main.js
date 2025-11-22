@@ -98,4 +98,40 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Hero background carousel implementation with crossfade
+    const heroElement = document.querySelector('.hero');
+    if (heroElement) {
+        const backgrounds = heroElement.querySelectorAll('.hero-background');
+        if (backgrounds.length < 2) return;
+
+        const images = [
+            '1/images/mainPic.jpg',
+            '1/images/mainPic2.jpg',
+            '1/images/mainPic3.jpg',
+            '1/images/mainPic4.jpg',
+            '1/images/mainPic5.jpg'
+        ];
+        
+        let currentIndex = 0;
+        let currentBg = 0;
+
+        // Initialize backgrounds
+        backgrounds[0].style.backgroundImage = `url('${images[0]}')`;
+        backgrounds[0].classList.add('visible');
+        backgrounds[1].style.backgroundImage = `url('${images[1]}')`;
+
+        currentIndex = 1;
+
+        function changeBackground() {
+            const nextBg = (currentBg + 1) % 2;
+            backgrounds[nextBg].style.backgroundImage = `url('${images[currentIndex]}')`;
+            backgrounds[nextBg].classList.add('visible');
+            backgrounds[currentBg].classList.remove('visible');
+            currentBg = nextBg;
+            currentIndex = (currentIndex + 1) % images.length;
+        }
+
+        setInterval(changeBackground, 4000);
+    }
 });
