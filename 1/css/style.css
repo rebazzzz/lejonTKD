@@ -161,6 +161,24 @@ p {
   font-size: 1.75rem;
 }
 
+.logo-image {
+  height: 4.5rem;
+  width: 4.5rem;
+  margin-right: 0.5rem;
+  object-fit: cover;
+  vertical-align: middle;
+  display: inline-block;
+  border-radius: 50%;
+  filter: saturate(1.2) brightness(0.85) hue-rotate(85deg);
+}
+
+.logo-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.35rem;
+
+}
+
 .nav {
   position: relative;
 }
