@@ -182,6 +182,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
 
+            // If on root page, fix all nav links to prepend '1/' folder
+            const isRoot = !window.location.pathname.includes("/1/");
+
+            if (isRoot) {
+                const navLinks = document.querySelectorAll('#navbar-placeholder ul.nav-menu a.nav-link');
+                navLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (!href.startsWith('http') && !href.startsWith('https') && !href.startsWith('mailto:') && !href.startsWith('#')) {
+                        // Prepend '1/' folder, avoiding duplicates
+                        if (!href.startsWith('1/')) {
+                            link.href = basePrefix + '/1/' + href;
+                        } else {
+                            link.href = basePrefix + '/' + href;
+                        }
+                    }
+                });
+            }
+
             // AFTER navbar is loaded, run this:
             const homeLink = document.getElementById("home-link");
 
