@@ -172,6 +172,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
 
+            // Fix logo link href if on inside 1/ folder
+            const isInside1 = window.location.pathname.includes("/1/");
+
+            if (isInside1) {
+                const logoLink = document.querySelector('#navbar-placeholder a.logo');
+                if (logoLink) {
+                    logoLink.href = basePrefix + '/index.html';
+                }
+            }
+
             // AFTER navbar is loaded, run this:
             const homeLink = document.getElementById("home-link");
 
