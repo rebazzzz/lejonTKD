@@ -8,7 +8,7 @@
   --color-muted: rgba(255,255,255,0.08);
   --radius: 12px;
   --gap: 1rem;
-  
+
   /* Typography */
   --font-family: 'Inter', sans-serif;
   --font-weight-light: 300;
@@ -16,7 +16,7 @@
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
-  
+
   /* Spacing */
   --section-padding: 4rem 0;
 }
@@ -39,6 +39,7 @@ body {
   color: var(--color-ui-white);
   background-color: var(--color-bg);
   overflow-x: hidden;
+
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -160,6 +161,23 @@ p {
   font-size: 1.75rem;
 }
 
+.logo-image {
+  height: 4.5rem;
+  width: 4.5rem;
+  margin-right: 0.5rem;
+  object-fit: cover;
+  vertical-align: middle;
+  display: inline-block;
+  border-radius: 50%;
+  filter: saturate(1.2) brightness(0.85) hue-rotate(85deg);
+}
+
+.logo-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 550;
+  font-size: 1.2rem;
+}
+
 .nav {
   position: relative;
 }
@@ -170,8 +188,8 @@ p {
   border: none;
   cursor: pointer;
   padding: 0.5rem;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   position: relative;
 }
 
@@ -251,7 +269,7 @@ p {
   width: 100%;
 }
 
-/* Footer */
+/* Footer Section */
 .footer {
   background: linear-gradient(180deg, #022b22 0%, #011f17 100%);
   padding: 5rem 0 0;
@@ -319,15 +337,18 @@ p {
   transform: translateY(-3px);
 }
 
-.wazGo {
+.footer-bottom {
+  border-top: 2px solid rgba(255, 255, 255, 0.15);
+  padding-top: 2.5rem;
   text-align: center;
-
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.05em;
 }
 
-a {
-  color: var(--color-accent);
-  text-decoration: none;
-  transition: color 0.3s ease;
+.wazGo{
+  text-align: center;
 }
 
 /* Chat Widget */
@@ -436,7 +457,7 @@ a {
 .chat-input {
   flex: 1;
   padding: 0.75rem;
-  border: 1px solid var(--color-muted);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius);
   background-color: rgba(255, 255, 255, 0.1);
   color: var(--color-ui-white);
@@ -456,16 +477,4 @@ a {
   padding: 0.75rem 1rem;
   cursor: pointer;
   font-weight: var(--font-weight-medium);
-}
-
-
-
-/* Links */
-.link {
-  color: var(--color-accent);
-  text-decoration: none;
-}
-
-.link:hover {
-  text-decoration: underline;
 }
