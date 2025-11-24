@@ -161,12 +161,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
             document.getElementById("navbar-placeholder").innerHTML = adjustedData;
 
-            // AFTER navbar is loaded, run this:
-            const homeLink = document.getElementById("home-link");
-
-            // get current page:
+            // Fix logo image src if on root index.html (image is in 1/images)
             const isIndex = window.location.pathname.endsWith("/index.html") ||
                             window.location.pathname.endsWith("/lejonTKD/");
+
+            if (isIndex) {
+                const logoImg = document.querySelector('#navbar-placeholder img.logo-image');
+                if (logoImg && logoImg.getAttribute('src').startsWith('images')) {
+                    logoImg.src = basePrefix + '/1/' + logoImg.getAttribute('src');
+                }
+            }
+
+            // AFTER navbar is loaded, run this:
+            const homeLink = document.getElementById("home-link");
 
             if (isIndex && homeLink) {
                 homeLink.style.display = "none";
