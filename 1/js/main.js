@@ -134,3 +134,33 @@ document.addEventListener('DOMContentLoaded', function() {
         setInterval(changeBackground, 4000);
     }
 });
+
+ // Load navbar component
+ document.addEventListener("DOMContentLoaded", () => {
+    let path = "";
+
+    if (window.location.pathname.includes("/1/")) {
+        // Inside folder 1
+        path = "navbar.html";
+    } else {
+        // In root index.html
+        path = "1/navbar.html";
+    }
+
+    fetch(path)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("navbar-placeholder").innerHTML = data;
+
+            // AFTER navbar is loaded, run this:
+            const homeLink = document.getElementById("home-link");
+
+            // get current page:
+            const isIndex = window.location.pathname.endsWith("/index.html") ||
+                            window.location.pathname.endsWith("/lejonTKD/");
+
+            if (isIndex && homeLink) {
+                homeLink.style.display = "none";
+            }
+        });
+});
