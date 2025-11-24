@@ -147,10 +147,19 @@ document.addEventListener('DOMContentLoaded', function() {
         path = "1/navbar.html";
     }
 
+    // Determine base URL prefix for GitHub Pages site or local
+    let basePrefix = "";
+    if (window.location.hostname.includes("github.io")) {
+        basePrefix = "/lejonTKD";
+    }
+
     fetch(path)
         .then(response => response.text())
         .then(data => {
-            document.getElementById("navbar-placeholder").innerHTML = data;
+            // Replace all href="/ and src="/ with prefix for GitHub Pages
+            const adjustedData = data.replace(/(href|src)="\//g, `$1="${basePrefix}/`);
+
+            document.getElementById("navbar-placeholder").innerHTML = adjustedData;
 
             // AFTER navbar is loaded, run this:
             const homeLink = document.getElementById("home-link");
