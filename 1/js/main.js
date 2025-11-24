@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
  // Load navbar component
- document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     let path = "";
 
     if (window.location.pathname.includes("/1/")) {
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
 
-            // Fix logo link href if on inside 1/ folder
+            // Fix logo link href if inside 1/ folder
             const isInside1 = window.location.pathname.includes("/1/");
 
             if (isInside1) {
@@ -200,11 +200,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
 
-            // AFTER navbar is loaded, run this:
-            const homeLink = document.getElementById("home-link");
+            // CREATE "Hem" link dynamically and toggle display based on page
+            const navMenu = document.querySelector('#navbar-placeholder ul.nav-menu');
+            if (navMenu) {
+                // Check if Hem link already exists
+                let homeLink = document.getElementById("home-link");
+                if (!homeLink) {
+                    homeLink = document.createElement('li');
+                    homeLink.innerHTML = `<a id="home-link" href="${basePrefix}/index.html" class="nav-link">Hem</a>`;
+                    navMenu.insertBefore(homeLink, navMenu.firstChild);
+                }
 
-            if (isIndex && homeLink) {
-                homeLink.style.display = "none";
+                if (isIndex) {
+                    homeLink.style.display = "none";
+                } else {
+                    homeLink.style.display = "block";
+                }
             }
         });
 });
