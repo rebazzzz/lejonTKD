@@ -175,7 +175,7 @@ p {
 .logo-text {
   font-family: 'Montserrat', sans-serif;
   font-weight: 550;
-  font-size: 1.2rem;
+  font-size: 1.35rem;
 }
 
 .nav {
@@ -236,7 +236,7 @@ p {
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .nav-link {
