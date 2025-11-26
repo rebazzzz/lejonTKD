@@ -44,6 +44,10 @@
   .instructors-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* Tablet (481px - 768px) */
@@ -126,9 +130,28 @@
   }
 
   .instructor-card {
-    flex-direction: column;
     max-width: 500px;
     margin: 0 auto;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cta-content {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .cta-title {
+    font-size: 1.75rem;
+  }
+
+  .footer-map {
+    max-width: 250px;
+  }
+
+  .footer-map iframe {
+    height: 180px;
   }
 
   .contact-grid {
@@ -322,7 +345,8 @@
   .family-cards,
   .costs-grid,
   .products-grid,
-  .instructors-grid {
+  .instructors-grid,
+  .gallery-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
@@ -360,16 +384,54 @@
   }
 
   .instructor-card {
-    flex-direction: column;
     max-width: 100%;
   }
 
   .instructor-image {
-    height: 180px;
+    width: 120px;
+    height: 120px;
   }
 
-  .instructor-info {
-    padding: 1.5rem;
+  .cta-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .cta-title {
+    font-size: 1.5rem;
+  }
+
+  .cta-subtitle {
+    font-size: 1rem;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .gallery-item {
+    aspect-ratio: 4 / 3;
+  }
+
+  .faq-question {
+    padding: 1.25rem;
+    font-size: 1rem;
+  }
+
+  .faq-answer {
+    padding: 0 1.25rem;
+  }
+
+  .faq-item.active .faq-answer {
+    padding: 0 1.25rem 1.25rem;
+  }
+
+  .footer-map {
+    max-width: 100%;
+  }
+
+  .footer-map iframe {
+    height: 160px;
   }
 
   /* Forms */
