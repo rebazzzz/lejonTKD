@@ -38,11 +38,8 @@ body {
   line-height: 1.6;
   color: var(--color-ui-white);
   background-color: var(--color-bg);
-  overflow-x: hidden;
-
-  display: flex;
-  flex-direction: column;
   min-height: 100vh;
+  padding-top: 90px;
 }
 
 .container {
@@ -133,11 +130,14 @@ p {
 
 /* Header & Navigation */
 .header {
-  position: sticky;
+  position: fixed !important;
   top: 0;
+  left: 0;
+  right: 0;
   background-color: var(--navcolor-surface);
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
 .header-content {
