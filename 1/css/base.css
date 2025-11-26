@@ -278,14 +278,28 @@ p {
   transition: background-color 0.5s ease;
 }
 
+.footer-map-link {
+  display: block;
+  text-decoration: none;
+  margin-top: 1.5rem;
+}
+
 .footer-map {
   width: 100%;
   max-width: 280px;
-  margin-top: 1.5rem;
   overflow: hidden;
   border-radius: var(--radius);
   border: 1px solid rgba(255, 212, 0, 0.15);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.footer-map:hover {
+  border-color: rgba(255, 212, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
 }
 
 .footer-map iframe {
@@ -294,6 +308,35 @@ p {
   border: none;
   display: block;
   filter: grayscale(0.3) brightness(0.9);
+}
+
+.map-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(1, 31, 23, 0.95), transparent);
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.footer-map:hover .map-overlay {
+  opacity: 1;
+}
+
+.map-overlay-icon {
+  font-size: 1.25rem;
+}
+
+.map-overlay-text {
+  color: var(--color-ui-white);
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-medium);
 }
 
 #footer-bg {
