@@ -278,6 +278,10 @@ p {
   transition: background-color 0.5s ease;
 }
 
+#footer-bg {
+  background: linear-gradient(180deg, #022b22 0%, #011f17 100%);
+}
+
 .footer-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

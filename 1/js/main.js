@@ -219,3 +219,55 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 });
+
+
+// Load footer component
+document.addEventListener("DOMContentLoaded", () => {
+    let path = "";
+
+    // Check if we are inside folder /1/
+    if (window.location.pathname.includes("/1/")) {
+        path = "footer.html";
+    } else {
+        path = "1/footer.html";
+    }
+
+    // GitHub Pages prefix
+    let basePrefix = "";
+    if (window.location.hostname.includes("github.io")) {
+        basePrefix = "/lejonTKD";
+    }
+
+    // Load footer
+    fetch(path)
+        .then(response => response.text())
+        .then(data => {
+            // Fix absolute href/src paths so they work on GitHub Pages
+            const adjustedData = data.replace(/(href|src)="\//g, `$1="${basePrefix}/`);
+
+            document.getElementById("footer-placeholder").innerHTML = adjustedData;
+
+            // Fix relative links if loading from root (prepend 1/)
+            const isRoot = !window.location.pathname.includes("/1/");
+            if (isRoot) {
+                const links = document.querySelectorAll('#footer-placeholder a');
+                links.forEach(link => {
+                    const href = link.getAttribute('href');
+
+                    if (
+                        href &&
+                        !href.startsWith("http") &&
+                        !href.startsWith("mailto:") &&
+                        !href.startsWith("#")
+                    ) {
+                        if (!href.startsWith('1/')) {
+                            link.href = `${basePrefix}/1/${href}`;
+                        } else {
+                            link.href = `${basePrefix}/${href}`;
+                        }
+                    }
+                });
+            }
+        })
+        .catch(error => console.log("Footer loading error:", error));
+});
