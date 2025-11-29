@@ -2,22 +2,48 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     const registrationForm = document.getElementById('registration-form');
-    const experienceSelect = document.getElementById('experience');
-    const beltLevelGroup = document.getElementById('belt-level-group');
+    const personalNumberInput = document.getElementById('personal-number');
+    const addGuardianCheckbox = document.getElementById('add-guardian');
+    const guardianSection = document.getElementById('guardian-section');
     const successModal = document.getElementById('success-modal');
     const modalClose = document.getElementById('modal-close');
     const modalConfirm = document.getElementById('modal-confirm');
 
-    // Toggle belt level field based on experience
-    if (experienceSelect && beltLevelGroup) {
-        experienceSelect.addEventListener('change', function() {
-            if (this.value === 'intermediate' || this.value === 'advanced') {
-                beltLevelGroup.style.display = 'block';
-            } else {
-                beltLevelGroup.style.display = 'none';
-                document.getElementById('belt-level').value = '';
-            }
-        });
+    // Function to calculate age from personnummer
+    function calculateAge(personnummer) {
+        if (!personnummer || personnummer.length < 8) return null;
+        const birthYear = parseInt(personnummer.substring(0, 4));
+        const currentYear = new Date().getFullYear();
+        return currentYear - birthYear;
+    }
+
+    // Function to toggle guardian section
+    function toggleGuardianSection() {
+        const personnummer = personalNumberInput.value.replace(/\D/g, '');
+        const age = calculateAge(personnummer);
+        const showGuardian = (age !== null && age < 18) || addGuardianCheckbox.checked;
+        
+        if (showGuardian) {
+            guardianSection.style.display = 'block';
+            // Make guardian fields required when visible
+            const guardianFields = guardianSection.querySelectorAll('input');
+            guardianFields.forEach(field => field.setAttribute('required', ''));
+        } else {
+            guardianSection.style.display = 'none';
+            // Remove required when hidden
+            const guardianFields = guardianSection.querySelectorAll('input');
+            guardianFields.forEach(field => field.removeAttribute('required'));
+        }
+    }
+
+    // Event listeners for guardian section toggle
+    if (personalNumberInput) {
+        personalNumberInput.addEventListener('input', toggleGuardianSection);
+        personalNumberInput.addEventListener('blur', toggleGuardianSection);
+    }
+
+    if (addGuardianCheckbox) {
+        addGuardianCheckbox.addEventListener('change', toggleGuardianSection);
     }
 
     // Form validation
@@ -34,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Reset form
                 registrationForm.reset();
-                beltLevelGroup.style.display = 'none';
+                toggleGuardianSection();
             }
         });
     }
@@ -164,8 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
         field.style.borderColor = '';
     }
 
-    // Format personal number input
-    const personalNumberInput = document.getElementById('personal-number');
+    // Format personal number input (already declared above)
     if (personalNumberInput) {
         personalNumberInput.addEventListener('input', function(e) {
             let value = e.target.value.replace(/\D/g, '');
