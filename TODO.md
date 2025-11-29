@@ -1,0 +1,2 @@
+- [x] Reduce instructors section in index.html to a teaser: Keep only one instructor (Ahmed Talabani), shorten bio, add CTA link to om-klubben.html
+- [x] Verify the section takes up less space while looking good
