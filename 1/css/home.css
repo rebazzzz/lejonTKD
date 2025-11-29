@@ -313,24 +313,38 @@
   background-color: var(--color-bg);
 }
 
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+.gallery-carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-track {
+  display: flex;
+  width: calc(250px * 11); /* 8 original + 3 duplicated = 11 items */
+  animation: slide 25s linear infinite;
 }
 
 .gallery-item {
   position: relative;
   border-radius: var(--radius);
   overflow: hidden;
-  aspect-ratio: 1 / 1;
+  width: 250px;
+  height: 250px;
+  margin-right: 1.5rem;
   background-color: var(--color-muted);
-  cursor: pointer;
-  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(255, 212, 0, 0.1);
+  border: 1px solid rgba(255, 212, 0, 0.2);
+  transition: all 0.3s ease;
 }
 
 .gallery-item:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(255, 212, 0, 0.2);
+  border-color: rgba(255, 212, 0, 0.4);
 }
 
 .gallery-item img {
@@ -342,8 +356,22 @@
 }
 
 .gallery-item:hover img {
-  transform: scale(1.1);
+  transform: scale(1.05);
   filter: brightness(1) contrast(1.1);
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 8 - 1.5rem * 8)); /* Move by 8 items + gaps */
+  }
+}
+
+/* Pause animation on hover for better UX */
+.gallery-carousel:hover .gallery-track {
+  animation-play-state: paused;
 }
 
 /* Mini FAQ Section */

@@ -48,6 +48,15 @@
   .gallery-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .gallery-track {
+    width: calc(250px * 11);
+  }
+
+  .gallery-item {
+    width: 250px;
+    height: 250px;
+  }
 }
 
 /* Tablet (481px - 768px) */
@@ -136,6 +145,15 @@
 
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-track {
+    width: calc(200px * 11);
+  }
+
+  .gallery-item {
+    width: 200px;
+    height: 200px;
   }
 
   .cta-content {
@@ -411,6 +429,15 @@
 
   .gallery-item {
     aspect-ratio: 4 / 3;
+  }
+
+  .gallery-track {
+    width: calc(150px * 11);
+  }
+
+  .gallery-item {
+    width: 150px;
+    height: 150px;
   }
 
   .faq-question {
