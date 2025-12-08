@@ -10,6 +10,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.3);
 }
 
 .hero-background {
@@ -22,13 +23,13 @@
   background-position: center center;
   background-repeat: no-repeat;
   opacity: 0;
-  transition: opacity 1.5s ease-in-out;
+  transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 0;
 }
 
 .hero-background.visible {
   opacity: 1;
-  transition: opacity 1.5s ease-in-out;
+  transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero::before {
@@ -38,7 +39,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(11, 61, 46, 0.75);
+  background: linear-gradient(135deg, rgba(1, 31, 23, 0.85) 0%, rgba(2, 43, 34, 0.75) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -46,6 +47,18 @@
 .hero-content {
   position: relative;
   z-index: 2;
+  animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-title {
@@ -53,16 +66,18 @@
   margin-bottom: 1rem;
   color: var(--color-ui-white);
   font-family: 'Montserrat', sans-serif;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+  text-shadow: 0 4px 8px rgba(0,0,0,0.8);
+  letter-spacing: -0.02em;
 }
 
 .hero-subtitle {
   font-size: 1rem;
   max-width: 600px;
   margin: 0 auto 2rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
   font-family: 'Montserrat', sans-serif;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+  line-height: 1.7;
 }
 
 .hero-actions {
@@ -75,9 +90,10 @@
 .hero-actions .btn-primary,
 .hero-actions .btn-secondary {
   text-shadow: 0 2px 6px rgba(0,0,0,0.8);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-  transition: box-shadow 0.3s ease;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 0.9rem;
+  animation: fadeInUp 1s ease-out 1s both;
 }
 
 .hero-actions .btn-primary {
@@ -86,12 +102,14 @@
 
 .hero-actions .btn-primary:hover,
 .hero-actions .btn-secondary:hover {
-  box-shadow: 0 6px 14px rgba(0,0,0,0.7);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.8);
+  transform: translateY(-2px);
 }
 
 /* Features Section */
 .features {
   padding: var(--section-padding);
+  background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-surface) 100%);
 }
 
 .features-grid {
@@ -104,9 +122,11 @@
 .feature-card {
   background-color: var(--color-muted);
   border-radius: var(--radius);
-  padding: 1.5rem;
+  padding: 2rem 1.5rem;
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 212, 0, 0.1);
 
   /* Equal-height cards */
   display: flex;
@@ -115,7 +135,9 @@
 }
 
 .feature-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+  border-color: rgba(255, 212, 0, 0.3);
 }
 
 /* Image wrapper with stable proportions */
@@ -124,7 +146,8 @@
   aspect-ratio: 16 / 9; /* keeps proportions without weird extra space */
   overflow: hidden;
   border-radius: var(--radius);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .feature-image img {
@@ -132,19 +155,27 @@
   height: 100%; /* required so aspect-ratio controls shape */
   object-fit: cover;
   filter: brightness(0.8) contrast(1.05);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-image img {
+  transform: scale(1.05);
 }
 
 /* Title & description */
 .feature-title {
   font-size: 1.4rem;
   margin-bottom: 0.75rem;
+  color: var(--color-ui-white);
+  font-weight: var(--font-weight-semibold);
 }
 
 /* This block stays ABOVE the bottom of the card */
 .feature-description {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
   margin-bottom: 0;
-  
+  line-height: 1.6;
+
   /* Push description toward bottom of card,
      removing the empty space you had */
   margin-top: auto;
@@ -273,7 +304,7 @@
 /* CTA Block Section */
 .cta-block {
   padding: var(--section-padding);
-  background-color: var(--color-surface);
+  background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-bg) 100%);
 }
 
 .cta-content {
@@ -284,6 +315,13 @@
   border-radius: var(--radius);
   padding: 3rem 2rem;
   border: 2px solid rgba(255, 212, 0, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-content:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
 }
 
 .cta-title {
@@ -291,13 +329,14 @@
   margin-bottom: 1rem;
   color: var(--color-ui-white);
   font-family: 'Montserrat', sans-serif;
+  font-weight: var(--font-weight-bold);
 }
 
 .cta-subtitle {
   font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 2rem;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .cta-actions {
