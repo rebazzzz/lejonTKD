@@ -29,6 +29,7 @@
 }
 
 html {
+  height: 100%;
   scroll-behavior: smooth;
 }
 
@@ -38,8 +39,14 @@ body {
   line-height: 1.6;
   color: var(--color-ui-white);
   background-color: var(--color-bg);
-  min-height: 100vh;
+  min-height: 100%;
   padding-top: 90px;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 .container {
