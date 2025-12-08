@@ -141,13 +141,14 @@
   height: 300px; /* clean, inte för stort */
   border-radius: var(--radius);
   overflow: hidden;
-  background-image: var(--img);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), var(--img);
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: flex-end;
   transition: transform .35s, box-shadow .35s;
   box-shadow: 0 8px 30px var(--card-elev);
+  filter: brightness(0.9) contrast(1.1) saturate(1.2);
 }
 
 /* SOFT GRADIENT (låter bilden synas) */
