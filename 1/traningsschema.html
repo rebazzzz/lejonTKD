@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
+ 
 <body>
     <!-- Header & Navigation -->
     <div id="navbar-placeholder"></div>
@@ -29,8 +29,7 @@
         <section class="page-header">
             <div class="container">
                 <h1 class="page-title">Träningstider & Grupper</h1>
-                <p class="page-subtitle">Se våra träningstider för alla åldrar och nivåer med tydliga grupper anpassade
-                    för barn, ungdomar och vuxna.</p>
+                <p class="page-subtitle">Se våra träningstider</p>
             </div>
         </section>
 
@@ -45,14 +44,11 @@
                     <select id="group-filter" aria-label="Filtrera på grupp"
                         style="padding: 0.5rem 1rem; border-radius: var(--radius); border: none; font-size: 1rem;">
                         <option value="alla">Alla grupper</option>
+                        <option value="Alla åldrar">Alla åldrar & nivåer</option>
                         <option value="Barn">Barn</option>
-                        <option value="Ungdom">Ungdom</option>
-                        <option value="Vuxna">Vuxna</option>
-                        <option value="Familjeträning">Familjeträning</option>
-                        <option value="Teknikträning">Teknikträning</option>
-                        <option value="Avancerad">Avancerad</option>
-                        <option value="Öppen träning">Öppen träning</option>
-                        <option value="Alla åldrar">Alla åldrar</option>
+                        <option value="Avancerad">Tävlingsgrupp</option>
+
+                       
                     </select>
                 </div>
 
@@ -61,89 +57,50 @@
                         <h3>Måndag</h3>
                         <p><strong>Barn 6-9 år</strong><br>17:00 - 18:00</p>
                         <p><strong>Barn 10-12 år</strong><br>18:00 - 19:00</p>
-                        <p><strong>Vuxna</strong><br>19:00 - 20:30</p>
+                        <p><strong>Alla åldrar & nivåer</strong><br>18:30 - 20:00</p>
                     </div>
                     <div class="schedule-day">
                         <h3>Tisdag</h3>
-                        <p><strong>Ungdomar 13-17 år</strong><br>17:30 - 18:30</p>
-                        <p><strong>Avancerad träning</strong><br>18:30 - 20:00</p>
+                        <p><strong>Nybörjare 8+</strong><br>17:00 - 18:30</p>
+                        <p><strong>Tävlingsgrupp</strong><br>18:30 - 20:00</p>
                     </div>
                     <div class="schedule-day">
                         <h3>Onsdag</h3>
                         <p><strong>Barn 6-12 år</strong><br>17:00 - 18:00</p>
-                        <p><strong>Ungdomar & Vuxna</strong><br>18:00 - 19:30</p>
+                        <p><strong>Alla åldrar & nivåer</strong><br>18:30 - 20:00</p>
                     </div>
                     <div class="schedule-day">
                         <h3>Torsdag</h3>
-                        <p><strong>Familjeträning</strong><br>17:30 - 18:30</p>
-                        <p><strong>Teknikträning</strong><br>18:30 - 20:00</p>
+                        <p><strong>Nybörjare 8+</strong><br>17:00 - 18:30</p>
+                        <p><strong>Tävlingsgrupp</strong><br>18:30 - 20:00</p>
                     </div>
                     <div class="schedule-day">
                         <h3>Fredag</h3>
-                        <p><strong>Alla åldrar</strong><br>17:30 - 19:00</p>
+                        <p><strong>Alla åldrar</strong><br>17:00 - 18:30</p>
+                        <p><strong>Alla åldrar & nivåer</strong><br>18:30 - 20:00</p>
+
                     </div>
                     <div class="schedule-day">
                         <h3>Söndag</h3>
-                        <p><strong>Öppen träning</strong><br>16:00 - 17:30</p>
+                        <p><strong>Nybörjare 8+</strong><br>17:00 - 18:30</p>
+                        <p><strong>Tävlingsgrupp</strong><br>18:30 - 20:00</p>
+
                     </div>
                 </div>
 
                 <!-- Repositioned button just below filter for better UX -->
                 <div class="text-center"
                     style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1rem; align-items: center;">
-                    <a href="registrering.html" class="btn btn-primary">Anmäl dig till träning</a>
+                    <a href="registrering.html" class="btn btn-primary">Anmäl dig idag!</a>
                     <a href="priser.html" class="btn btn-secondary">Se priser & Medlemskap</a>
                 </div>
             </div>
         </section>
 
-        <!-- Group Descriptions -->
-        <section class="content-section bg-surface">
-            <div class="container">
-                <h2 class="section-title">Våra Grupper</h2>
-                <div class="groups-grid">
-                    <div class="group-card">
-                        <h3 class="group-title">Barn 6-9 år</h3>
-                        <p class="group-description">Roliga och pedagogiska träningspass där barnen lär sig grunderna i
-                            Taekwondo på ett lekfullt sätt. Fokus på koordination, självförtroende och respekt.</p>
-                        <div class="group-details">
-                            <p><strong>Instruktör:</strong> Maria Svensson</p>
-                            <p><strong>Passlängd:</strong> 60 minuter</p>
-                        </div>
-                    </div>
+        <!-- Instructor Section -->
+         
 
-                    <div class="group-card">
-                        <h3 class="group-title">Barn 10-12 år</h3>
-                        <p class="group-description">Mer strukturerad träning med ökad teknikfokus. Barnen börjar lära
-                            sig mer avancerade rörelser och förbereder sig för sina första gradprov.</p>
-                        <div class="group-details">
-                            <p><strong>Instruktör:</strong> Maria Svensson / Ahmed Talabani</p>
-                            <p><strong>Passlängd:</strong> 60-90 minuter</p>
-                        </div>
-                    </div>
-
-                    <div class="group-card">
-                        <h3 class="group-title">Ungdomar 13-17 år</h3>
-                        <p class="group-description">Utmanande träning som kombinerar teknik, styrka och kondition.
-                            Ungdomarna får möjlighet att delta i tävlingar och gradprov.</p>
-                        <div class="group-details">
-                            <p><strong>Instruktör:</strong> Ahmed Talabani</p>
-                            <p><strong>Passlängd:</strong> 90 minuter</p>
-                        </div>
-                    </div>
-
-                    <div class="group-card">
-                        <h3 class="group-title">Vuxna</h3>
-                        <p class="group-description">Träning för vuxna i alla åldrar och nivåer. Perfekt för både
-                            nybörjare och erfarna utövare. Fokus på teknik, kondition och gemenskap.</p>
-                        <div class="group-details">
-                            <p><strong>Instruktör:</strong> Ahmed Talabani</p>
-                            <p><strong>Passlängd:</strong> 90 minuter</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+      
     </main>
     
     <!-- Footer -->

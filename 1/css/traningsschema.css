@@ -1,11 +1,14 @@
 /* Header Section */
+.page-header{
+    margin-top: 2rem;
+}
 .page-title {
     color: var(--color-accent);
     margin-bottom: 0.5rem;
     font-weight: var(--font-weight-bold);
     text-align: center;
 }
-
+ 
 .page-subtitle {
     font-size: 1.125rem;
     color: rgba(255, 255, 255, 0.8);
@@ -78,124 +81,6 @@
     border-bottom: none;
 }
 
-.level-badge {
-    padding: 0.25rem 0.75rem;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    font-weight: var(--font-weight-medium);
-}
-
-.level-badge.beginner {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.level-badge.intermediate {
-    background-color: #2196F3;
-    color: white;
-}
-
-.level-badge.advanced {
-    background-color: #FF9800;
-    color: white;
-}
-
-.level-badge.all-levels {
-    background-color: #9C27B0;
-    color: white;
-}
-
-/* Groups Grid */
-.groups-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.group-card {
-    background-color: var(--color-muted);
-    border-radius: var(--radius);
-    padding: 2rem;
-}
-
-.group-title {
-    color: var(--color-accent);
-    margin-bottom: 1rem;
-}
-
-.group-description {
-    margin-bottom: 1.5rem;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.group-details p {
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-/* Events Timeline */
-.events-timeline {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.event-item {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid var(--color-muted);
-}
-
-.event-item:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-.event-date {
-    background-color: var(--color-accent);
-    color: var(--color-surface);
-    padding: 1rem;
-    border-radius: var(--radius);
-    text-align: center;
-    min-width: 80px;
-    height: fit-content;
-}
-
-.event-day {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: var(--font-weight-bold);
-    line-height: 1;
-}
-
-.event-month {
-    display: block;
-    font-size: 0.875rem;
-    font-weight: var(--font-weight-medium);
-    text-transform: uppercase;
-}
-
-.event-content {
-    flex: 1;
-}
-
-.event-title {
-    color: var(--color-accent);
-    margin-bottom: 0.5rem;
-}
-
-.event-description {
-    margin-bottom: 0.5rem;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.event-time {
-    font-weight: var(--font-weight-medium);
-    color: rgba(255, 255, 255, 0.7);
-}
 
 /* CTA Section */
 .cta-section {
