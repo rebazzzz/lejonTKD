@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kassa - Lejon TKD</title>
+    <link rel="icon" href="favicon_io (1)/favicon.ico" sizes="any">
+    <link rel="icon" href="favicon_io (1)/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="favicon_io (1)/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="favicon_io (1)/apple-touch-icon.png">
+    <link rel="manifest" href="favicon_io (1)/site.webmanifest">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/shop.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Kassa</h1>
+                <p class="page-subtitle">Slutför din beställning</p>
+            </div>
+        </section>
+
+        <!-- Checkout Content -->
+        <section class="content-section">
+            <div class="container">
+                <div class="checkout-layout">
+                    <!-- Order Summary -->
+                    <div class="checkout-summary">
+                        <h2>Din Beställning</h2>
+                        <div id="checkout-items">
+                            <!-- Order items will be loaded dynamically -->
+                        </div>
+                        <div class="checkout-total">
+                            <div class="total-row">
+                                <span>Delsumma:</span>
+                                <span id="subtotal">0 kr</span>
+                            </div>
+                            <div class="total-row">
+                                <span>Frakt:</span>
+                                <span id="shipping">0 kr</span>
+                            </div>
+                            <div class="total-row total">
+                                <span>Totalt:</span>
+                                <span id="total">0 kr</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Checkout Form -->
+                    <div class="checkout-form-container">
+                        <form id="checkout-form" class="checkout-form">
+                            <!-- Customer Information -->
+                            <div class="form-section">
+                                <h3>Kunduppgifter</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="first-name">Förnamn *</label>
+                                        <input type="text" id="first-name" name="firstName" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="last-name">Efternamn *</label>
+                                        <input type="text" id="last-name" name="lastName" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">E-post *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Telefon *</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+                            </div>
+
+                            <!-- Shipping Address -->
+                            <div class="form-section">
+                                <h3>Leveransadress</h3>
+                                <div class="form-group">
+                                    <label for="address">Adress *</label>
+                                    <input type="text" id="address" name="address" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="postal-code">Postnummer *</label>
+                                        <input type="text" id="postal-code" name="postalCode" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="city">Ort *</label>
+                                        <input type="text" id="city" name="city" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Payment Method -->
+                            <div class="form-section">
+                                <h3>Betalningsmetod</h3>
+                                <div class="payment-methods">
+                                    <div class="payment-method">
+                                        <input type="radio" id="swish" name="paymentMethod" value="swish" checked>
+                                        <label for="swish">
+                                            <div class="payment-info">
+                                                <span class="payment-name">Swish</span>
+                                                <span class="payment-desc">Betalning via Swish-appen</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="payment-method">
+                                        <input type="radio" id="bank-transfer" name="paymentMethod" value="bank-transfer">
+                                        <label for="bank-transfer">
+                                            <div class="payment-info">
+                                                <span class="payment-name">Banköverföring</span>
+                                                <span class="payment-desc">Betalning via bank</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Order Notes -->
+                            <div class="form-section">
+                                <h3>Ordernoteringar (valfritt)</h3>
+                                <div class="form-group">
+                                    <textarea id="order-notes" name="orderNotes" rows="3" placeholder="Eventuella önskemål eller kommentarer..."></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="form-actions">
+                                <a href="cart.html" class="btn btn-secondary">Tillbaka till varukorg</a>
+                                <button type="submit" class="btn btn-primary">Slutför beställning</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Order Success Modal -->
+    <div id="order-success-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Beställning mottagen!</h2>
+                <button class="modal-close" id="success-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="success-icon">✓</div>
+                <p>Tack för din beställning! Du kommer snart att få en bekräftelse via e-post.</p>
+                <p><strong>Ordernummer:</strong> <span id="order-number"></span></p>
+                <p>Vi behandlar din beställning inom 1-2 arbetsdagar.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="success-continue">Fortsätt handla</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-bg">
+        <div id="footer-placeholder"></div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/checkout.js"></script>
+</body>
+
+</html>

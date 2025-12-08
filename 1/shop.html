@@ -22,6 +22,15 @@
     <!-- Header & Navigation -->
     <div id="navbar-placeholder"></div>
 
+    <!-- Cart Toggle Button (Mobile/Desktop) -->
+    <div class="cart-icon-container">
+        <button class="cart-icon" id="cart-toggle">
+            🛒
+            <span class="cart-count" id="cart-count">0</span>
+        </button>
+        <a href="cart.html" class="view-cart-link">Visa varukorg</a>
+    </div>
+
     <!-- Main Content -->
     <main>
         <!-- Page Header -->
@@ -88,95 +97,6 @@
         </div>
     </div>
 
-    <!-- Checkout Modal -->
-    <div class="modal" id="checkout-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">Kassa</h2>
-                <button class="modal-close" id="checkout-close">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form id="checkout-form" class="checkout-form">
-                    <div class="form-section">
-                        <h3>Leveransadress</h3>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="checkout-name" class="form-label">Fullständigt namn *</label>
-                                <input type="text" id="checkout-name" name="checkout-name" class="form-input" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="checkout-address" class="form-label">Adress *</label>
-                            <input type="text" id="checkout-address" name="checkout-address" class="form-input"
-                                required>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="checkout-postal" class="form-label">Postnummer *</label>
-                                <input type="text" id="checkout-postal" name="checkout-postal" class="form-input"
-                                    required>
-                            </div>
-                            <div class="form-group">
-                                <label for="checkout-city" class="form-label">Ort *</label>
-                                <input type="text" id="checkout-city" name="checkout-city" class="form-input" required>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-section">
-                        <h3>Betalningsinformation</h3>
-                        <div class="payment-methods">
-                            <label class="payment-method">
-                                <input type="radio" name="payment-method" value="card" checked>
-                                <span class="payment-label">Kortbetalning</span>
-                            </label>
-                            <label class="payment-method">
-                                <input type="radio" name="payment-method" value="swish">
-                                <span class="payment-label">Swish</span>
-                            </label>
-                            <label class="payment-method">
-                                <input type="radio" name="payment-method" value="invoice">
-                                <span class="payment-label">Faktura</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="order-summary">
-                        <h3>Ordersammanfattning</h3>
-                        <div id="checkout-summary">
-                            <!-- Order summary will be populated dynamically -->
-                        </div>
-                        <div class="order-total">
-                            <strong>Totalt: <span id="checkout-total">0 kr</span></strong>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-actions">
-                <button type="button" class="btn btn-secondary" id="checkout-back">Tillbaka</button>
-                <button type="submit" form="checkout-form" class="btn btn-primary" id="checkout-confirm">Slutför
-                    Köp</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Order Success Modal -->
-    <div class="modal" id="order-success-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">Tack för ditt köp!</h2>
-            </div>
-            <div class="modal-body">
-                <div class="success-icon">🎉</div>
-                <p>Din beställning har mottagits och behandlas. Du kommer att få en orderbekräftelse via e-post inom
-                    kort.</p>
-                <p><strong>Ordernummer: <span id="order-number">LTKD-2023-001</span></strong></p>
-            </div>
-            <div class="modal-actions">
-                <button class="btn btn-primary" id="success-continue">Fortsätt Handla</button>
-            </div>
-        </div>
-    </div>
 
     <!-- Footer -->
     <div id="footer-bg">

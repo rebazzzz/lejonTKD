@@ -11,14 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const cartCount = document.getElementById('cart-count');
     const cartTotalAmount = document.getElementById('cart-total-amount');
     const checkoutBtn = document.getElementById('checkout-btn');
-    const checkoutModal = document.getElementById('checkout-modal');
-    const checkoutClose = document.getElementById('checkout-close');
-    const checkoutBack = document.getElementById('checkout-back');
-    const checkoutForm = document.getElementById('checkout-form');
-    const checkoutSummary = document.getElementById('checkout-summary');
-    const checkoutTotal = document.getElementById('checkout-total');
-    const orderSuccessModal = document.getElementById('order-success-modal');
-    const successContinue = document.getElementById('success-continue');
     const categoryFilter = document.getElementById('category-filter');
     const sortBy = document.getElementById('sort-by');
 
@@ -184,50 +176,26 @@ document.addEventListener('DOMContentLoaded', function() {
         if (cartToggle) {
             cartToggle.addEventListener('click', toggleCart);
         }
-        
+
         if (cartClose) {
             cartClose.addEventListener('click', closeCart);
         }
-        
-        // Checkout flow
+
+        // Checkout flow - redirect to checkout page
         if (checkoutBtn) {
-            checkoutBtn.addEventListener('click', openCheckout);
+            checkoutBtn.addEventListener('click', function() {
+                window.location.href = 'checkout.html';
+            });
         }
-        
-        if (checkoutClose) {
-            checkoutClose.addEventListener('click', closeCheckout);
-        }
-        
-        if (checkoutBack) {
-            checkoutBack.addEventListener('click', closeCheckout);
-        }
-        
-        if (checkoutForm) {
-            checkoutForm.addEventListener('submit', processCheckout);
-        }
-        
-        if (successContinue) {
-            successContinue.addEventListener('click', closeOrderSuccess);
-        }
-        
+
         // Filters and sorting
         if (categoryFilter) {
             categoryFilter.addEventListener('change', filterProducts);
         }
-        
+
         if (sortBy) {
             sortBy.addEventListener('change', sortProducts);
         }
-        
-        // Close modals when clicking outside
-        document.addEventListener('click', function(e) {
-            if (checkoutModal.classList.contains('active') && e.target === checkoutModal) {
-                closeCheckout();
-            }
-            if (orderSuccessModal.classList.contains('active') && e.target === orderSuccessModal) {
-                closeOrderSuccess();
-            }
-        });
     }
 
     // Add to cart event delegation
