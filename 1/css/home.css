@@ -4,8 +4,6 @@
   --card-elev: rgba(0, 0, 0, 0.45);
   }
 
-
-
 /* Hero Section */
 .hero {
   background-color: var(--color-surface);
@@ -262,86 +260,6 @@
   
 }
 
-/* Facilities List */
-.facilities-list {
-  list-style: none;
-  padding: 0;
-}
-
-.facilities-list li {
-  padding: 0.5rem 0;
-  position: relative;
-  padding-left: 1.5rem;
-}
-
-.facilities-list li::before {
-  content: "✓";
-  color: var(--color-accent);
-  position: absolute;
-  left: 0;
-  font-weight: bold;
-}
-
-/* Instructors Section */
-.instructors {
-  padding: var(--section-padding);
-  background-color: var(--color-bg);
-}
-
-.instructors-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.instructor-card {
-  background-color: var(--color-muted);
-  border-radius: var(--radius);
-  padding: 2rem;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.instructor-card:hover {
-  transform: translateY(-5px);
-}
-
-.instructor-image {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin: 0 auto 1.5rem;
-  overflow: hidden;
-  border: 3px solid var(--color-accent);
-}
-
-.instructor-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.9) contrast(1.05);
-}
-
-.instructor-name {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: var(--color-ui-white);
-}
-
-.instructor-role {
-  font-size: 1rem;
-  color: var(--color-accent);
-  font-weight: var(--font-weight-semibold);
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.instructor-bio {
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.6;
-}
-
 /* CTA Block Section */
 .cta-block {
   padding: var(--section-padding);
@@ -389,50 +307,47 @@
 
 /* Gallery Section */
 .gallery {
-  padding: var(--section-padding);
-  background-color: var(--color-bg);
+  padding: var(--section-padding, 4rem 1rem);
+  background-color: var(--color-bg, #0b0b0c);
+  color: #fff;
 }
 
-.gallery-carousel {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+.gallery .section-title {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--gold, #ffd400);
+  margin-bottom: 2rem;
 }
 
-.gallery-track {
-  display: flex;
-  width: calc(250px * 11); /* 8 original + 3 duplicated = 11 items */
-  animation: slide 25s linear infinite;
+/* Desktop grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
 }
 
+/* Gallery item */
 .gallery-item {
   position: relative;
-  border-radius: var(--radius);
+  border-radius: var(--radius, 12px);
   overflow: hidden;
-  width: 250px;
-  height: 250px;
-  margin-right: 1.5rem;
-  background-color: var(--color-muted);
-  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 15px rgba(255, 212, 0, 0.1);
-  border: 1px solid rgba(255, 212, 0, 0.2);
-  transition: all 0.3s ease;
 }
 
 .gallery-item:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
   box-shadow: 0 8px 25px rgba(255, 212, 0, 0.2);
-  border-color: rgba(255, 212, 0, 0.4);
 }
 
 .gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  display: block;
   filter: brightness(0.85) contrast(1.05);
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .gallery-item:hover img {
@@ -440,19 +355,50 @@
   filter: brightness(1) contrast(1.1);
 }
 
-@keyframes slide {
-  0% {
-    transform: translateX(0);
+/* Mobile scroll-snap */
+@media (max-width: 768px) {
+  .gallery-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    padding-bottom: 1rem;
   }
-  100% {
-    transform: translateX(calc(-250px * 8 - 1.5rem * 8)); /* Move by 8 items + gaps */
+
+  .gallery-item {
+    flex: 0 0 70%;
+    scroll-snap-align: start;
   }
 }
 
-/* Pause animation on hover for better UX */
-.gallery-carousel:hover .gallery-track {
-  animation-play-state: paused;
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
 }
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: var(--radius, 12px);
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 3rem;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
 
 /* Mini FAQ Section */
 .mini-faq {

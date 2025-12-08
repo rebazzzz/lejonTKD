@@ -271,3 +271,46 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(error => console.log("Footer loading error:", error));
 });
+
+
+// Lazy loading
+document.addEventListener("DOMContentLoaded", function() {
+  const lazyImages = document.querySelectorAll(".lazy");
+  const options = { rootMargin: "0px 0px 50px 0px", threshold: 0 };
+  
+  const lazyLoad = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const img = entry.target;
+        img.src = img.dataset.src;
+        img.classList.remove("lazy");
+        observer.unobserve(img);
+      }
+    });
+  }, options);
+  
+  lazyImages.forEach(img => lazyLoad.observe(img));
+});
+
+// Lightbox
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.querySelector('.lightbox-img');
+const galleryItems = document.querySelectorAll('.gallery-item img');
+const closeBtn = document.querySelector('.lightbox .close');
+
+galleryItems.forEach(img => {
+  img.addEventListener('click', () => {
+    lightbox.style.display = 'flex';
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+  });
+});
+
+closeBtn.addEventListener('click', () => {
+  lightbox.style.display = 'none';
+});
+
+// Klick utanför bilden stänger lightbox
+lightbox.addEventListener('click', (e) => {
+  if(e.target === lightbox) lightbox.style.display = 'none';
+});
