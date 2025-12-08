@@ -1,26 +1,7 @@
 // main.js - General functionality for the website
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile navigation toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function() {
-            const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-            navToggle.setAttribute('aria-expanded', !isExpanded);
-            navMenu.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking on a link
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navToggle.setAttribute('aria-expanded', 'false');
-                navMenu.classList.remove('active');
-            });
-        });
-    }
+    // Mobile navigation toggle - moved to navbar load callback below
     
     // Add focus styles for keyboard navigation
     const focusableElements = document.querySelectorAll(
@@ -216,6 +197,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 } else {
                     homeLink.style.display = "block";
                 }
+            }
+
+            // Mobile navigation toggle - now that navbar is loaded
+            const navToggle = document.querySelector('#navbar-placeholder .nav-toggle');
+            const navMenuToggle = document.querySelector('#navbar-placeholder .nav-menu');
+
+            if (navToggle && navMenuToggle) {
+                navToggle.addEventListener('click', function() {
+                    const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+                    navToggle.setAttribute('aria-expanded', !isExpanded);
+                    navMenuToggle.classList.toggle('active');
+                });
+
+                // Close mobile menu when clicking on a link
+                const navLinks = document.querySelectorAll('#navbar-placeholder .nav-link');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        navToggle.setAttribute('aria-expanded', 'false');
+                        navMenuToggle.classList.remove('active');
+                    });
+                });
             }
         });
 });

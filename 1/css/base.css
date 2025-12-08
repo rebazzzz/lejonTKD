@@ -241,11 +241,11 @@ p {
 }
 
 .hamburger::before {
-  top: 12px;
+  top: 6px;
 }
 
 .hamburger::after {
-  bottom: 12px;
+  bottom: 6px;
 }
 
 .nav-toggle[aria-expanded="true"] .hamburger {
@@ -266,6 +266,7 @@ p {
   display: flex;
   list-style: none;
   gap: 1rem;
+  
 }
 
 .nav-link {
