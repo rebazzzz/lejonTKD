@@ -302,7 +302,7 @@ p {
 /* Footer Section */
 .footer {
   background: linear-gradient(180deg, #022b22 0%, #011f17 100%);
-  padding: 5rem 0 0;
+  padding: 0.6rem 0 0;
   box-shadow: inset 0 10px 10px -10px rgba(0,0,0,0.7);
   border-top: 3px solid var(--color-accent);
   transition: background-color 0.5s ease;
@@ -376,10 +376,10 @@ p {
 .footer-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2.5rem;
-  margin-bottom: 3rem;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 2rem;
+  padding-bottom: 0.3rem;
 }
 
 .footer-section {
@@ -393,12 +393,12 @@ p {
 }
 
 .footer-title {
-  font-size: 1.3rem;
-  margin-bottom: 1.2rem;
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
   color: var(--color-accent);
   font-weight: var(--font-weight-bold);
   letter-spacing: 0.05em;
-  text-transform: uppercase;
+  -transform: uppercase;
 }
 
 .footer-text {
@@ -408,7 +408,7 @@ p {
 }
 
 .footer-address p {
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.2rem;
   color: rgba(255, 255, 255, 0.85);
   font-size: 0.95rem;
 }
