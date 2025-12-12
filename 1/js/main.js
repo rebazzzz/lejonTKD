@@ -294,25 +294,290 @@ document.addEventListener("DOMContentLoaded", function() {
   lazyImages.forEach(img => lazyLoad.observe(img));
 });
 
-// Lightbox
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.querySelector('.lightbox-img');
-const galleryItems = document.querySelectorAll('.gallery-item img');
-const closeBtn = document.querySelector('.lightbox .close');
+// Gallery System with Random Selection and Modal
+document.addEventListener('DOMContentLoaded', function() {
+    // All available gallery images (excluding logos and non-gallery images)
+    const allGalleryImages = [
+        '1/images/482209172_9364902986926563_5916584812675029144_n.jpg',
+        '1/images/483735717_9358447500905445_6877543920309236774_n.jpg',
+        '1/images/487543765_9467208896695971_8944467126548948374_n.jpg',
+        '1/images/487674476_9467202060029988_4815281988279844292_n.jpg',
+        '1/images/489041866_9520107234739470_2961360016254588005_n.jpg',
+        '1/images/490855416_9570495323033994_5315674643087459799_n.jpg',
+        '1/images/490916081_9562715080478685_3297657162050413043_n.jpg',
+        '1/images/491964974_9623052441111615_6977924920370143104_n.jpg',
+        '1/images/513651603_23894520133538274_5640907701813658302_n.jpg',
+        '1/images/513780330_23894519890204965_6951999527634970080_n.jpg',
+        '1/images/514271693_23893602583630029_530679452399934868_n.jpg',
+        '1/images/540419627_24413309771659305_470074930240162789_n.jpg',
+        '1/images/593543667_25240798478910426_305354356074607486_n.jpg',
+        '1/images/advancednew.jpg',
+        '1/images/allaalder.jpg',
+        '1/images/elite.jpg',
+        '1/images/gemenskap.jpg',
+        '1/images/IMG_5161.jpg',
+        '1/images/mainPic2.jpg',
+        '1/images/mainPic3.jpg',
+        '1/images/mainPic4.jpg',
+        '1/images/mainPic5.jpg',
+        '1/images/vinst.jpg'
+    ];
 
-galleryItems.forEach(img => {
-  img.addEventListener('click', () => {
-    lightbox.style.display = 'flex';
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt;
-  });
-});
+    // Function to shuffle array (Fisher-Yates algorithm) - ensures no duplicates
+    function shuffleArray(array) {
+        const shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+    }
 
-closeBtn.addEventListener('click', () => {
-  lightbox.style.display = 'none';
-});
+    // Function to populate main gallery with 8 unique random images
+    function populateMainGallery() {
+        const mainGallery = document.getElementById('main-gallery');
+        if (!mainGallery) return;
 
-// Klick utanför bilden stänger lightbox
-lightbox.addEventListener('click', (e) => {
-  if(e.target === lightbox) lightbox.style.display = 'none';
+        // Shuffle and select 8 unique images (no duplicates possible with slice)
+        const shuffledImages = shuffleArray(allGalleryImages);
+        const selectedImages = shuffledImages.slice(0, 8);
+
+        mainGallery.innerHTML = '';
+        selectedImages.forEach((imagePath, index) => {
+            const galleryItem = document.createElement('div');
+            galleryItem.className = 'gallery-item';
+            galleryItem.innerHTML = `<img src="${imagePath}" alt="Bild från Lion Taekwondo IF" loading="lazy">`;
+            mainGallery.appendChild(galleryItem);
+        });
+
+        // Add click handlers for lightbox
+        attachLightboxHandlers();
+    }
+
+    // Function to populate modal gallery with all images
+    function populateModalGallery() {
+        const modalGallery = document.getElementById('modal-gallery');
+        if (!modalGallery) return;
+
+        modalGallery.innerHTML = '';
+        allGalleryImages.forEach((imagePath, index) => {
+            const galleryItem = document.createElement('div');
+            galleryItem.className = 'modal-gallery-item';
+            galleryItem.innerHTML = `<img src="${imagePath}" alt="Bild från Lion Taekwondo IF" loading="lazy">`;
+            modalGallery.appendChild(galleryItem);
+        });
+
+        // Add click handlers for lightbox
+        attachModalLightboxHandlers();
+    }
+
+    // Lightbox functionality
+    let currentImageIndex = 0;
+    let currentImageArray = [];
+
+    function openLightbox(imageSrc, imageArray) {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.querySelector('.lightbox-img');
+        const lightboxCounter = document.getElementById('lightbox-counter');
+
+        currentImageArray = imageArray;
+        currentImageIndex = imageArray.indexOf(imageSrc);
+
+        lightbox.classList.add('active');
+        lightboxImg.src = imageSrc;
+        lightboxCounter.textContent = `${currentImageIndex + 1} / ${imageArray.length}`;
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function navigateLightbox(direction) {
+        if (currentImageArray.length === 0) return;
+
+        if (direction === 'next') {
+            currentImageIndex = (currentImageIndex + 1) % currentImageArray.length;
+        } else {
+            currentImageIndex = (currentImageIndex - 1 + currentImageArray.length) % currentImageArray.length;
+        }
+
+        const lightboxImg = document.querySelector('.lightbox-img');
+        const lightboxCounter = document.getElementById('lightbox-counter');
+        lightboxImg.src = currentImageArray[currentImageIndex];
+        lightboxCounter.textContent = `${currentImageIndex + 1} / ${currentImageArray.length}`;
+    }
+
+    function attachLightboxHandlers() {
+        const galleryItems = document.querySelectorAll('#main-gallery .gallery-item img');
+        const imageArray = Array.from(galleryItems).map(img => img.src);
+
+        galleryItems.forEach(img => {
+            img.addEventListener('click', () => {
+                openLightbox(img.src, imageArray);
+            });
+        });
+    }
+
+    function attachModalLightboxHandlers() {
+        const modalGalleryItems = document.querySelectorAll('#modal-gallery .modal-gallery-item img');
+        const imageArray = Array.from(modalGalleryItems).map(img => img.src);
+
+        modalGalleryItems.forEach(img => {
+            img.addEventListener('click', () => {
+                openLightbox(img.src, imageArray);
+            });
+        });
+    }
+
+    // Modal functionality
+    const viewAllBtn = document.getElementById('view-all-btn');
+    const galleryModal = document.getElementById('gallery-modal');
+    const modalClose = document.querySelector('.modal-close');
+
+    if (viewAllBtn) {
+        viewAllBtn.addEventListener('click', () => {
+            galleryModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            // Show back to top button when modal opens
+            showBackToTopButton();
+        });
+    }
+
+    if (modalClose) {
+        modalClose.addEventListener('click', () => {
+            closeModal();
+        });
+    }
+
+    // Close modal when clicking outside
+    if (galleryModal) {
+        galleryModal.addEventListener('click', (e) => {
+            if (e.target === galleryModal) {
+                closeModal();
+            }
+        });
+    }
+
+    function closeModal() {
+        galleryModal.classList.remove('active');
+        document.body.style.overflow = '';
+        // Hide back to top button when modal closes
+        hideBackToTopButton();
+    }
+
+    // Back to Top Button functionality
+    function createBackToTopButton() {
+        const backToTopBtn = document.createElement('div');
+        backToTopBtn.className = 'back-to-top';
+        backToTopBtn.id = 'back-to-top';
+        backToTopBtn.setAttribute('aria-label', 'Tillbaka till toppen');
+        backToTopBtn.setAttribute('role', 'button');
+        backToTopBtn.setAttribute('tabindex', '0');
+        document.body.appendChild(backToTopBtn);
+
+        backToTopBtn.addEventListener('click', scrollToTop);
+        
+        // Keyboard accessibility
+        backToTopBtn.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                scrollToTop();
+            }
+        });
+
+        return backToTopBtn;
+    }
+
+    function scrollToTop() {
+        const galleryModal = document.getElementById('gallery-modal');
+        if (galleryModal && galleryModal.classList.contains('active')) {
+            // Scroll modal to top
+            galleryModal.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    }
+
+    function showBackToTopButton() {
+        const backToTopBtn = document.getElementById('back-to-top') || createBackToTopButton();
+        backToTopBtn.classList.add('visible');
+    }
+
+    function hideBackToTopButton() {
+        const backToTopBtn = document.getElementById('back-to-top');
+        if (backToTopBtn) {
+            backToTopBtn.classList.remove('visible');
+        }
+    }
+
+    // Show/hide back to top button based on scroll position in modal
+    if (galleryModal) {
+        galleryModal.addEventListener('scroll', () => {
+            const backToTopBtn = document.getElementById('back-to-top');
+            if (galleryModal.classList.contains('active')) {
+                if (galleryModal.scrollTop > 300) {
+                    showBackToTopButton();
+                } else {
+                    hideBackToTopButton();
+                }
+            }
+        });
+    }
+
+    // Lightbox controls
+    const lightboxClose = document.querySelector('.lightbox .close');
+    const lightboxPrev = document.getElementById('lightbox-prev');
+    const lightboxNext = document.getElementById('lightbox-next');
+
+    if (lightboxClose) {
+        lightboxClose.addEventListener('click', closeLightbox);
+    }
+
+    if (lightboxPrev) {
+        lightboxPrev.addEventListener('click', () => navigateLightbox('prev'));
+    }
+
+    if (lightboxNext) {
+        lightboxNext.addEventListener('click', () => navigateLightbox('next'));
+    }
+
+    // Close lightbox when clicking outside image
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+    }
+
+    // Keyboard navigation for lightbox
+    document.addEventListener('keydown', (e) => {
+        const lightbox = document.getElementById('lightbox');
+        if (lightbox && lightbox.classList.contains('active')) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                navigateLightbox('prev');
+            } else if (e.key === 'ArrowRight') {
+                navigateLightbox('next');
+            }
+        }
+
+        // Close modal with Escape key
+        const galleryModal = document.getElementById('gallery-modal');
+        if (galleryModal && galleryModal.classList.contains('active') && e.key === 'Escape') {
+            galleryModal.classList.remove('active');
+            document.body.style.overflow = '';
+            hideBackToTopButton();
+        }
+    });
+
+    // Initialize galleries
+    populateMainGallery();
+    populateModalGallery();
 });

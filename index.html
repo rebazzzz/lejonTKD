@@ -94,18 +94,18 @@
                     <div class="schedule-card">
                         <h3 class="schedule-day">Måndagar</h3>
                         <p class="schedule-time">18:30 - 20:00</p>
-                        <p class="schedule-group">Alla nivåer</p>
+                        <p class="schedule-group">Avancerad</p>
                         
                     </div>
                     <div class="schedule-card">
                         <h3 class="schedule-day">Onsdagar</h3>
                          <p class="schedule-time">18:30 - 20:00</p>
-                        <p class="schedule-group">Alla nivåer</p>
+                        <p class="schedule-group">Avancerad</p>
                     </div>
                     <div class="schedule-card">
                         <h3 class="schedule-day">Fredagar</h3>
                          <p class="schedule-time">18:30 - 20:00</p>
-                        <p class="schedule-group">Alla nivåer</p>
+                        <p class="schedule-group">Avancerad</p>
                     </div>
                 </div>
                 <div class="schedule-actions">
@@ -121,45 +121,37 @@
   <div class="container">
     <h2 class="section-title">Från Vår Klubb</h2>
     
-    <!-- Desktop grid -->
-    <div class="gallery-grid">
+    <!-- Desktop grid - will be populated by JavaScript -->
+    <div class="gallery-grid" id="main-gallery">
+      <!-- 8 random images will be inserted here by JavaScript -->
+    </div>
+    
+    <!-- View All Button -->
+    <div class="gallery-actions">
+      <button class="btn btn-primary" id="view-all-btn">Se Alla Bilder</button>
+    </div>
+  </div>
 
-        <div class="gallery-item">
-        <img data-src="1/images/vinst.jpg" alt="Vinst på tävling" class="lazy">
+  <!-- Full Gallery Modal -->
+  <div class="gallery-modal" id="gallery-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Galleri - Lion Taekwondo IF</h3>
+        <span class="modal-close">&times;</span>
       </div>
-
-      <div class="gallery-item">
-        <img data-src="1/images/mainPic5.jpg" alt="Taggad inför tävling" class="lazy">
-      </div>
-
-      <div class="gallery-item">
-        <img data-src="1/images/490855416_9570495323033994_5315674643087459799_n.jpg" alt="Gradering" class="lazy">
-      </div>
-
-      <div class="gallery-item">
-        <img data-src="1/images/mainPic4.jpg" alt="Glada elever efter gradering" class="lazy">
-      </div>
-
-      <div class="gallery-item">
-        <img data-src="1/images/514271693_23893602583630029_530679452399934868_n.jpg" alt="Gemenskap efter tröning" class="lazy">
-      </div>
-      
-      <div class="gallery-item">
-        <img data-src="1/images/513780330_23894519890204965_6951999527634970080_n.jpg" alt="Träning" class="lazy">
-      </div>
-      <div class="gallery-item">
-        <img data-src="1/images/490916081_9562715080478685_3297657162050413043_n.jpg" alt="Träning" class="lazy">
-      </div>
-      <div class="gallery-item">
-        <img data-src="1/images/540419627_24413309771659305_470074930240162789_n.jpg" alt="Träning" class="lazy">
+      <div class="modal-gallery-grid" id="modal-gallery">
+        <!-- All images will be inserted here by JavaScript -->
       </div>
     </div>
   </div>
 
-  <!-- Lightbox -->
+  <!-- Lightbox for individual image viewing -->
   <div class="lightbox" id="lightbox">
     <span class="close">&times;</span>
+    <button class="lightbox-nav prev" id="lightbox-prev"><</button>
+    <button class="lightbox-nav next" id="lightbox-next">></button>
     <img class="lightbox-img" src="" alt="">
+    <div class="lightbox-counter" id="lightbox-counter"></div>
   </div>
 </section>
 

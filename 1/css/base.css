@@ -413,6 +413,12 @@ p {
   font-size: 0.95rem;
 }
 
+#tel {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold);
+}
+
 .social-links {
   display: flex;
   gap: 1.5rem;
