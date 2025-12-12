@@ -318,7 +318,6 @@ document.addEventListener('DOMContentLoaded', function() {
         '1/images/IMG_0477.jpg',
         '1/images/IMG_5161.jpg',
         '1/images/IMG_6129.jpg',
-        '1/images/IMG_6374.PNG',
         '1/images/IMG_7552.jpg',
         '1/images/IMG_7963.JPG',
         '1/images/IMG_9214.jpg',
