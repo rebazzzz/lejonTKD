@@ -28,7 +28,7 @@
         <!-- Page Header -->
         <section class="page-header">
             <div class="container">
-                <h1 class="page-title">Träningstider & Grupper</h1>
+                <h1 class="page-title">Schema & Instruktörer</h1>
                 <p class="page-subtitle">Se våra träningstider</p>
             </div>
         </section>
@@ -44,52 +44,49 @@
                     <select id="group-filter" aria-label="Filtrera på grupp"
                         style="padding: 0.5rem 1rem; border-radius: var(--radius); border: none; font-size: 1rem;">
                         <option value="alla">Alla grupper</option>
-                        <option value="Alla åldrar">Barn 5-7 år</option>
-                        <option value="Barn">Barn 8-12 år</option>
+                        <option value="Barn 5-7 år">Barn 5-7 år</option>
+                        <option value="Barn 8-12 år">Barn 8-12 år</option>
+                        <option value="Nybörjare 13+">Nybörjare 13+</option>
                         <option value="Avancerad">Avancerad</option>
-
-                       
                     </select>
                 </div>
 
                 <div class="schedule-container">
-                    <div class="schedule-day">
+                    <div class="schedule-day" data-day="måndag">
                         <h3>Måndag</h3>
-                        <p><strong>Barn 5-7 år</strong><br>16:00 - 17:00</p>
-                        <p><strong>Barn 8-12 år</strong><br>17:00 - 18:30</p>
-                        <p><strong>Avancerad</strong><br>18:30 - 20:00</p>
+                        <p class="group-slot" data-group="Barn 5-7 år"><strong>Barn 5-7 år</strong><br>16:00 - 17:00</p>
+                        <p class="group-slot" data-group="Barn 8-12 år"><strong>Barn 8-12 år</strong><br>17:00 - 18:30</p>
+                        <p class="group-slot" data-group="Avancerad"><strong>Avancerad</strong><br>18:30 - 20:00</p>
                     </div>
-                    <div class="schedule-day">
+                    <div class="schedule-day" data-day="tisdag">
                         <h3>Tisdag</h3>
-                        <p><strong>Barn 5-7 år</strong><br>16:00 - 17:00</p>
-                        <p><strong>Barn 8-12 år</strong><br>17:00 - 18:30</p>
-                        <p><strong>Nybörjare 13+</strong><br>18:30 - 20:00</p>
+                        <p class="group-slot" data-group="Barn 5-7 år"><strong>Barn 5-7 år</strong><br>16:00 - 17:00</p>
+                        <p class="group-slot" data-group="Barn 8-12 år"><strong>Barn 8-12 år</strong><br>17:00 - 18:30</p>
+                        <p class="group-slot" data-group="Nybörjare 13+"><strong>Nybörjare 13+</strong><br>18:30 - 20:00</p>
                     </div>
-                    <div class="schedule-day">
+                    <div class="schedule-day" data-day="onsdag">
                         <h3>Onsdag</h3>
-                        <p><strong>Barn 5-7 år</strong><br>16:00 - 17:00</p>
-                        <p><strong>Barn 8-12 år</strong><br>17:00 - 18:00</p>
-                        <p><strong>Avancerad</strong><br>18:30 - 20:00</p>
+                        <p class="group-slot" data-group="Barn 5-7 år"><strong>Barn 5-7 år</strong><br>16:00 - 17:00</p>
+                        <p class="group-slot" data-group="Barn 8-12 år"><strong>Barn 8-12 år</strong><br>17:00 - 18:00</p>
+                        <p class="group-slot" data-group="Avancerad"><strong>Avancerad</strong><br>18:30 - 20:00</p>
                     </div>
-                    <div class="schedule-day">
+                    <div class="schedule-day" data-day="torsdag">
                         <h3>Torsdag</h3>
-                        <p><strong>Barn 5-7 år</strong><br>16:00 - 17:00</p>
-                        <p><strong>Barn 8-12 år</strong><br>17:00 - 18:30</p>
-                        <p><strong>Nybörjare 13+</strong><br>18:30 - 20:00</p>
+                        <p class="group-slot" data-group="Barn 5-7 år"><strong>Barn 5-7 år</strong><br>16:00 - 17:00</p>
+                        <p class="group-slot" data-group="Barn 8-12 år"><strong>Barn 8-12 år</strong><br>17:00 - 18:30</p>
+                        <p class="group-slot" data-group="Nybörjare 13+"><strong>Nybörjare 13+</strong><br>18:30 - 20:00</p>
                     </div>
-                    <div class="schedule-day">
+                    <div class="schedule-day" data-day="fredag">
                         <h3>Fredag</h3>
-                        <p><strong>Barn 5-7 år</strong><br>16:00 - 17:00</p>
-                        <p><strong>Barn 8-12 år</strong><br>17:00 - 18:30</p>
-                        <p><strong>Avancerad</strong><br>18:30 - 20:00</p>
-
+                        <p class="group-slot" data-group="Barn 5-7 år"><strong>Barn 5-7 år</strong><br>16:00 - 17:00</p>
+                        <p class="group-slot" data-group="Barn 8-12 år"><strong>Barn 8-12 år</strong><br>17:00 - 18:30</p>
+                        <p class="group-slot" data-group="Avancerad"><strong>Avancerad</strong><br>18:30 - 20:00</p>
                     </div>
-                    <div class="schedule-day">
+                    <div class="schedule-day" data-day="söndag">
                         <h3>Söndag</h3>
-                        <p><strong>Barn 5-7 år</strong><br>16:00 - 17:00</p>
-                        <p><strong>Barn 8-12 år</strong><br>17:00 - 18:30</p>
-                        <p><strong>Nybörjare 13+</strong><br>18:30 - 20:00</p>
-
+                        <p class="group-slot" data-group="Barn 5-7 år"><strong>Barn 5-7 år</strong><br>16:00 - 17:00</p>
+                        <p class="group-slot" data-group="Barn 8-12 år"><strong>Barn 8-12 år</strong><br>17:00 - 18:30</p>
+                        <p class="group-slot" data-group="Nybörjare 13+"><strong>Nybörjare 13+</strong><br>18:30 - 20:00</p>
                     </div>
                 </div>
 
