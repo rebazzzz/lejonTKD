@@ -109,34 +109,92 @@
         <div class="instructor-image-wrapper">
           <img src="images/593543667_25240798478910426_305354356074607486_n.jpg" alt="Ahmed Talabani" class="instructor-image">
         </div>
-        <h3 class="instructor-name">Ahmed Talabani</h3>
-        <p class="instructor-description">
-          Klubbansvarig och huvudinstruktör, 7 Dan svart bälte, över 30 års erfarenhet. Mästerskapserfarenhet och expert på avancerad teknik och tävlingsförberedelser.
-        </p>
+        <div class="instructor-info">
+          <h3 class="instructor-name">Ahmed Talabani</h3>
+          <p class="instructor-meta"><strong>Bälte:</strong> 7 Dan Svart Bälte</p>
+          <p class="instructor-meta"><strong>Roll:</strong> Klubbansvarig & Huvudinstruktör</p>
+          <p class="instructor-meta"><strong>Specialitet:</strong> Avancerad Teknik & Tävlingsförberedelser</p>
+          <button class="btn btn-primary instructor-read-more" 
+                  data-name="Ahmed Talabani"
+                  data-belt="7 Dan Svart Bälte"
+                  data-role="Klubbansvarig & Huvudinstruktör"
+                  data-specialty="Avancerad Teknik & Tävlingsförberedelser"
+                  data-bio="Ahmed Talabani är klubbansvarig och huvudinstruktör med över 30 års erfarenhet inom Taekwondo. Med sitt 7 Dan svarta bälte och omfattande mästerskapserfarenhet är Ahmed en expert på avancerad teknik och tävlingsförberedelser. Han har tränat och coachat otaliga utövare genom åren och är känd för sin passion, dedikation och förmåga att inspirera sina elever att nå sina mål. Ahmed kombinerar traditionell Taekwondo-filosofi med moderna träningsmetoder för att skapa en optimal lärandemiljö."
+                  data-image="images/593543667_25240798478910426_305354356074607486_n.jpg">
+            Läs mer
+          </button>
+        </div>
       </div>
 
       <div class="instructor-card">
         <div class="instructor-image-wrapper">
           <img src="images/IMG_6374.PNG" alt="Patricia Suiceanu" class="instructor-image">
         </div>
-        <h3 class="instructor-name">Patricia Suiceanu</h3>
-        <p class="instructor-description">
-        Erfaren instruktör med över 10 års erfarenhet inom Taekwondo. Expert på teknik och individuell utveckling, som skapar motiverande, strukturerade och trygga träningspass där varje utövare kan nå sin fulla potential.
-        </p>
+        <div class="instructor-info">
+          <h3 class="instructor-name">Patricia Suiceanu</h3>
+          <p class="instructor-meta"><strong>Bälte:</strong> Svart Bälte</p>
+          <p class="instructor-meta"><strong>Roll:</strong> Instruktör</p>
+          <p class="instructor-meta"><strong>Specialitet:</strong> Teknik & Individuell Utveckling</p>
+          <button class="btn btn-primary instructor-read-more"
+                  data-name="Patricia Suiceanu"
+                  data-belt="Svart Bälte"
+                  data-role="Instruktör"
+                  data-specialty="Teknik & Individuell Utveckling"
+                  data-bio="Patricia Suiceanu är en erfaren instruktör med över 10 års erfarenhet inom Taekwondo. Hon är expert på teknik och individuell utveckling, och skapar motiverande, strukturerade och trygga träningspass där varje utövare kan nå sin fulla potential. Patricia är känd för sin tålmodighet och förmåga att anpassa träningen efter varje elevs behov och nivå. Hon brinner för att hjälpa sina elever att utvecklas både fysiskt och mentalt genom Taekwondo."
+                  data-image="images/IMG_6374.PNG">
+            Läs mer
+          </button>
+        </div>
       </div>
 
-      <div  class="instructor-card">
+      <div class="instructor-card">
         <div class="instructor-image-wrapper">
           <img src="images/download.jpeg" alt="Robin" class="instructor-image">
         </div>
-        <h3 class="instructor-name">Robin</h3>
-        <p class="instructor-description">
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora aliquam numquam quos, dolores quisquam modi iste, dolorem possimus inventore, quibusdam eos accusamus laboriosam. Magnam dignissimos officiis voluptate itaque, reiciendis quibusdam.        </p>
+        <div class="instructor-info">
+          <h3 class="instructor-name">Robin</h3>
+          <p class="instructor-meta"><strong>Bälte:</strong> Svart Bälte</p>
+          <p class="instructor-meta"><strong>Roll:</strong> Instruktör</p>
+          <p class="instructor-meta"><strong>Specialitet:</strong> Grundteknik & Barnträning</p>
+          <button class="btn btn-primary instructor-read-more"
+                  data-name="Robin"
+                  data-belt="Svart Bälte"
+                  data-role="Instruktör"
+                  data-specialty="Grundteknik & Barnträning"
+                  data-bio="Robin är en dedikerad instruktör med passion för att lära ut Taekwondo till både barn och vuxna. Med sitt svarta bälte och omfattande erfarenhet är Robin specialist på grundteknik och barnträning. Han skapar en rolig och engagerande lärandemiljö där eleverna känner sig trygga och motiverade att utvecklas. Robin är känd för sin energi, entusiasm och förmåga att göra varje träningspass både lärorikt och underhållande."
+                  data-image="images/download.jpeg">
+            Läs mer
+          </button>
+        </div>
       </div>
 
     </div>
   </div>
 </section>
+
+<!-- Instructor Modal -->
+<div id="instructorModal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal-overlay"></div>
+  <div class="modal-content">
+    <button class="modal-close" aria-label="Stäng modal">&times;</button>
+    <div class="modal-body">
+      <div class="modal-image-section">
+        <img id="modalImage" src="" alt="" class="modal-instructor-image">
+      </div>
+      <div class="modal-info-section">
+        <div class="modal-meta">
+          <p class="modal-meta-item"><strong>Bälte:</strong> <span id="modalBelt"></span></p>
+          <p class="modal-meta-item"><strong>Roll:</strong> <span id="modalRole"></span></p>
+          <p class="modal-meta-item"><strong>Specialitet:</strong> <span id="modalSpecialty"></span></p>
+        </div>
+        <h2 id="modalTitle" class="modal-title"></h2>
+        <div class="modal-bio">
+          <p id="modalBio"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
@@ -152,6 +210,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora aliquam numquam
 
     <script src="js/main.js"></script>
     <script src="js/schedule-filter.js"></script>
+    <script src="js/instructor-modal.js"></script>
 </body>
 
 </html>
