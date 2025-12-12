@@ -298,34 +298,47 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener('DOMContentLoaded', function() {
     // All available gallery images (excluding logos, videos, and non-displayable formats)
     const allGalleryImages = [
+        '1/images/513651603_23894520133538274_5640907701813658302_n.jpg',
+        '1/images/IMG_1903.PNG',
+        '1/images/489041866_9520107234739470_2961360016254588005_n.jpg',
+        '1/images/IMG_1901.PNG',
+
+        '1/images/IMG_6129.jpg',
+        '1/images/IMG_1904.PNG',
+        '1/images/491964974_9623052441111615_6977924920370143104_n.jpg',
+        '1/images/advancednew.jpg',
+        '1/images/490855416_9570495323033994_5315674643087459799_n.jpg',
+
         '1/images/482209172_9364902986926563_5916584812675029144_n.jpg',
-        '1/images/483735717_9358447500905445_6877543920309236774_n.jpg',
+        '1/images/490916081_9562715080478685_3297657162050413043_n.jpg',
         '1/images/487543765_9467208896695971_8944467126548948374_n.jpg',
         '1/images/487674476_9467202060029988_4815281988279844292_n.jpg',
-        '1/images/489041866_9520107234739470_2961360016254588005_n.jpg',
-        '1/images/490855416_9570495323033994_5315674643087459799_n.jpg',
-        '1/images/490916081_9562715080478685_3297657162050413043_n.jpg',
-        '1/images/491964974_9623052441111615_6977924920370143104_n.jpg',
-        '1/images/513651603_23894520133538274_5640907701813658302_n.jpg',
-        '1/images/513780330_23894519890204965_6951999527634970080_n.jpg',
+
         '1/images/514271693_23893602583630029_530679452399934868_n.jpg',
+        '1/images/513780330_23894519890204965_6951999527634970080_n.jpg',
         '1/images/540419627_24413309771659305_470074930240162789_n.jpg',
         '1/images/593543667_25240798478910426_305354356074607486_n.jpg',
-        '1/images/advancednew.jpg',
+
+        '1/images/IMG_1902.PNG',
         '1/images/allaalder.jpg',
         '1/images/elite.jpg',
         '1/images/gemenskap.jpg',
+
         '1/images/IMG_0477.jpg',
         '1/images/IMG_5161.jpg',
         '1/images/IMG_6129.jpg',
         '1/images/IMG_7552.jpg',
+
         '1/images/IMG_7963.JPG',
         '1/images/IMG_9214.jpg',
         '1/images/mainPic2.jpg',
         '1/images/mainPic3.jpg',
+
         '1/images/mainPic4.jpg',
         '1/images/mainPic5.jpg',
-        '1/images/vinst.jpg'
+        '1/images/vinst.jpg',
+        '1/images/483735717_9358447500905445_6877543920309236774_n.jpg'
+
     ];
 
     // Function to shuffle array (Fisher-Yates algorithm) - ensures no duplicates
