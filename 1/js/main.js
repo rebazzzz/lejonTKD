@@ -459,12 +459,9 @@ document.addEventListener('DOMContentLoaded', function() {
         viewAllBtn.addEventListener('click', () => {
             galleryModal.classList.add('active');
             document.body.style.overflow = 'hidden';
-            // Create and show back to top button when modal opens
+            // Create back to top button when modal opens (but don't show it yet)
             const backToTopBtn = document.getElementById('back-to-top') || createBackToTopButton();
-            // Show it immediately
-            setTimeout(() => {
-                backToTopBtn.classList.add('visible');
-            }, 100);
+            // Button will show when user scrolls down (handled by scroll event)
         });
     }
 
@@ -533,6 +530,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const backToTopBtn = document.getElementById('back-to-top');
         if (backToTopBtn) {
             backToTopBtn.classList.remove('visible');
+            backToTopBtn.style.display = 'none';
         }
     }
 
@@ -541,9 +539,13 @@ document.addEventListener('DOMContentLoaded', function() {
         galleryModal.addEventListener('scroll', () => {
             const backToTopBtn = document.getElementById('back-to-top');
             if (galleryModal.classList.contains('active') && backToTopBtn) {
-                if (galleryModal.scrollTop > 300) {
+                // Only show button when scrolled down more than 200px
+                if (galleryModal.scrollTop > 200) {
+                    backToTopBtn.style.display = 'flex';
                     backToTopBtn.classList.add('visible');
+                    backToTopBtn.style.opacity = '1';
                 } else {
+                    backToTopBtn.style.display = 'none';
                     backToTopBtn.classList.remove('visible');
                 }
             }
