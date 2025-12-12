@@ -296,7 +296,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Gallery System with Random Selection and Modal
 document.addEventListener('DOMContentLoaded', function() {
-    // All available gallery images (excluding logos and non-gallery images)
+    // All available gallery images (excluding logos, videos, and non-displayable formats)
     const allGalleryImages = [
         '1/images/482209172_9364902986926563_5916584812675029144_n.jpg',
         '1/images/483735717_9358447500905445_6877543920309236774_n.jpg',
@@ -315,7 +315,13 @@ document.addEventListener('DOMContentLoaded', function() {
         '1/images/allaalder.jpg',
         '1/images/elite.jpg',
         '1/images/gemenskap.jpg',
+        '1/images/IMG_0477.jpg',
         '1/images/IMG_5161.jpg',
+        '1/images/IMG_6129.jpg',
+        '1/images/IMG_6374.PNG',
+        '1/images/IMG_7552.jpg',
+        '1/images/IMG_7963.JPG',
+        '1/images/IMG_9214.jpg',
         '1/images/mainPic2.jpg',
         '1/images/mainPic3.jpg',
         '1/images/mainPic4.jpg',
@@ -441,8 +447,12 @@ document.addEventListener('DOMContentLoaded', function() {
         viewAllBtn.addEventListener('click', () => {
             galleryModal.classList.add('active');
             document.body.style.overflow = 'hidden';
-            // Show back to top button when modal opens
-            showBackToTopButton();
+            // Create and show back to top button when modal opens
+            const backToTopBtn = document.getElementById('back-to-top') || createBackToTopButton();
+            // Show it immediately
+            setTimeout(() => {
+                backToTopBtn.classList.add('visible');
+            }, 100);
         });
     }
 
@@ -518,11 +528,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (galleryModal) {
         galleryModal.addEventListener('scroll', () => {
             const backToTopBtn = document.getElementById('back-to-top');
-            if (galleryModal.classList.contains('active')) {
+            if (galleryModal.classList.contains('active') && backToTopBtn) {
                 if (galleryModal.scrollTop > 300) {
-                    showBackToTopButton();
+                    backToTopBtn.classList.add('visible');
                 } else {
-                    hideBackToTopButton();
+                    backToTopBtn.classList.remove('visible');
                 }
             }
         });
