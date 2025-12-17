@@ -13,7 +13,6 @@
   const modalTitle = document.getElementById('modalTitle');
   const modalBelt = document.getElementById('modalBelt');
   const modalRole = document.getElementById('modalRole');
-  const modalSpecialty = document.getElementById('modalSpecialty');
   const modalBio = document.getElementById('modalBio');
 
   // Function to open modal
@@ -26,8 +25,7 @@
     modalTitle.textContent = instructorData.name;
     modalBelt.textContent = instructorData.belt;
     modalRole.textContent = instructorData.role;
-    modalSpecialty.textContent = instructorData.specialty;
-    modalBio.textContent = instructorData.bio;
+    modalBio.innerHTML = instructorData.bio;
 
     // Show modal
     modal.classList.add('active');
@@ -54,7 +52,6 @@
         name: this.getAttribute('data-name'),
         belt: this.getAttribute('data-belt'),
         role: this.getAttribute('data-role'),
-        specialty: this.getAttribute('data-specialty'),
         bio: this.getAttribute('data-bio'),
         image: this.getAttribute('data-image')
       };
