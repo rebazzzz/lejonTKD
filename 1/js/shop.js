@@ -78,12 +78,12 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             id: 7,
-            name: 'Svart bälte',
-            category: 'belts',
+            name: 'Arm-skydd',
+            category: 'equipment',
             price: 149,
             originalPrice: null,
             image: '📿',
-            description: 'Autentiskt svart bälte för avancerade utövare.',
+            description: 'Skydd för armar vid träning och tävling.',
             badge: null
         },
         {
