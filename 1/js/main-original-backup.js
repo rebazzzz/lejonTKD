@@ -1,4 +1,4 @@
-// main.js - General functionality with WebP image support
+// main.js - General functionality for the website
 
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile navigation toggle - moved to navbar load callback below
@@ -80,45 +80,32 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Hero background carousel implementation with crossfade - UPDATED FOR WEBP
+    // Hero background carousel implementation with crossfade
     const heroElement = document.querySelector('.hero');
     if (heroElement) {
         const backgrounds = heroElement.querySelectorAll('.hero-background');
         if (backgrounds.length < 2) return;
 
-        // WebP images with fallback
         const images = [
-            { webp: '1/images/webp/mainPic2.webp', fallback: '1/images/mainPic2.jpg' },
-            { webp: '1/images/webp/mainPic3.webp', fallback: '1/images/mainPic3.jpg' },
-            { webp: '1/images/webp/mainPic4.webp', fallback: '1/images/mainPic4.jpg' },
-            { webp: '1/images/webp/mainPic5.webp', fallback: '1/images/mainPic5.jpg' }
+            '1/images/mainPic2.jpg',
+            '1/images/mainPic3.jpg',
+            '1/images/mainPic4.jpg',
+            '1/images/mainPic5.jpg'
         ];
         
         let currentIndex = 0;
         let currentBg = 0;
 
-        // Check WebP support
-        function supportsWebP() {
-            const elem = document.createElement('canvas');
-            if (elem.getContext && elem.getContext('2d')) {
-                return elem.toDataURL('image/webp').indexOf('data:image/webp') === 0;
-            }
-            return false;
-        }
-
-        const useWebP = supportsWebP();
-
         // Initialize backgrounds
-        backgrounds[0].style.backgroundImage = `url('${useWebP ? images[0].webp : images[0].fallback}')`;
+        backgrounds[0].style.backgroundImage = `url('${images[0]}')`;
         backgrounds[0].classList.add('visible');
-        backgrounds[1].style.backgroundImage = `url('${useWebP ? images[1].webp : images[1].fallback}')`;
+        backgrounds[1].style.backgroundImage = `url('${images[1]}')`;
 
         currentIndex = 1;
 
         function changeBackground() {
             const nextBg = (currentBg + 1) % 2;
-            const imageToUse = useWebP ? images[currentIndex].webp : images[currentIndex].fallback;
-            backgrounds[nextBg].style.backgroundImage = `url('${imageToUse}')`;
+            backgrounds[nextBg].style.backgroundImage = `url('${images[currentIndex]}')`;
             backgrounds[nextBg].classList.add('visible');
             backgrounds[currentBg].classList.remove('visible');
             currentBg = nextBg;
@@ -307,59 +294,52 @@ document.addEventListener("DOMContentLoaded", function() {
   lazyImages.forEach(img => lazyLoad.observe(img));
 });
 
-// Gallery System with Random Selection and Modal - UPDATED FOR WEBP
+// Gallery System with Random Selection and Modal
 document.addEventListener('DOMContentLoaded', function() {
-    // All available gallery images with WebP support
+    // All available gallery images (excluding logos, videos, and non-displayable formats)
     const allGalleryImages = [
-        { webp: '1/images/webp/513651603_23894520133538274_5640907701813658302_n.webp', fallback: '1/images/513651603_23894520133538274_5640907701813658302_n.jpg' },
-        { webp: '1/images/webp/IMG_1903.webp', fallback: '1/images/IMG_1903.PNG' },
-        { webp: '1/images/webp/489041866_9520107234739470_2961360016254588005_n.webp', fallback: '1/images/489041866_9520107234739470_2961360016254588005_n.jpg' },
-        { webp: '1/images/webp/IMG_1901.webp', fallback: '1/images/IMG_1901.PNG' },
-        { webp: '1/images/webp/IMG_6129.webp', fallback: '1/images/IMG_6129.jpg' },
-        { webp: '1/images/webp/IMG_1904.webp', fallback: '1/images/IMG_1904.PNG' },
-        { webp: '1/images/webp/491964974_9623052441111615_6977924920370143104_n.webp', fallback: '1/images/491964974_9623052441111615_6977924920370143104_n.jpg' },
-        { webp: '1/images/webp/advancednew.webp', fallback: '1/images/advancednew.jpg' },
-        { webp: '1/images/webp/490855416_9570495323033994_5315674643087459799_n.webp', fallback: '1/images/490855416_9570495323033994_5315674643087459799_n.jpg' },
-        { webp: '1/images/webp/482209172_9364902986926563_5916584812675029144_n.webp', fallback: '1/images/482209172_9364902986926563_5916584812675029144_n.jpg' },
-        { webp: '1/images/webp/490916081_9562715080478685_3297657162050413043_n.webp', fallback: '1/images/490916081_9562715080478685_3297657162050413043_n.jpg' },
-        { webp: '1/images/webp/487543765_9467208896695971_8944467126548948374_n.webp', fallback: '1/images/487543765_9467208896695971_8944467126548948374_n.jpg' },
-        { webp: '1/images/webp/487674476_9467202060029988_4815281988279844292_n.webp', fallback: '1/images/487674476_9467202060029988_4815281988279844292_n.jpg' },
-        { webp: '1/images/webp/514271693_23893602583630029_530679452399934868_n.webp', fallback: '1/images/514271693_23893602583630029_530679452399934868_n.jpg' },
-        { webp: '1/images/webp/513780330_23894519890204965_6951999527634970080_n.webp', fallback: '1/images/513780330_23894519890204965_6951999527634970080_n.jpg' },
-        { webp: '1/images/webp/540419627_24413309771659305_470074930240162789_n.webp', fallback: '1/images/540419627_24413309771659305_470074930240162789_n.jpg' },
-        { webp: '1/images/webp/593543667_25240798478910426_305354356074607486_n.webp', fallback: '1/images/593543667_25240798478910426_305354356074607486_n.jpg' },
-        { webp: '1/images/webp/IMG_1902.webp', fallback: '1/images/IMG_1902.PNG' },
-        { webp: '1/images/webp/allaalder.webp', fallback: '1/images/allaalder.jpg' },
-        { webp: '1/images/webp/elite.webp', fallback: '1/images/elite.jpg' },
-        { webp: '1/images/webp/gemenskap.webp', fallback: '1/images/gemenskap.jpg' },
-        { webp: '1/images/webp/IMG_0477.webp', fallback: '1/images/IMG_0477.jpg' },
-        { webp: '1/images/webp/IMG_5161.webp', fallback: '1/images/IMG_5161.jpg' },
-        { webp: '1/images/webp/IMG_7552.webp', fallback: '1/images/IMG_7552.jpg' },
-        { webp: '1/images/webp/IMG_7963.webp', fallback: '1/images/IMG_7963.JPG' },
-        { webp: '1/images/webp/IMG_9214.webp', fallback: '1/images/IMG_9214.jpg' },
-        { webp: '1/images/webp/mainPic2.webp', fallback: '1/images/mainPic2.jpg' },
-        { webp: '1/images/webp/mainPic3.webp', fallback: '1/images/mainPic3.jpg' },
-        { webp: '1/images/webp/mainPic4.webp', fallback: '1/images/mainPic4.jpg' },
-        { webp: '1/images/webp/mainPic5.webp', fallback: '1/images/mainPic5.jpg' },
-        { webp: '1/images/webp/vinst.webp', fallback: '1/images/vinst.jpg' },
-        { webp: '1/images/webp/483735717_9358447500905445_6877543920309236774_n.webp', fallback: '1/images/483735717_9358447500905445_6877543920309236774_n.jpg' }
+        '1/images/513651603_23894520133538274_5640907701813658302_n.jpg',
+        '1/images/IMG_1903.PNG',
+        '1/images/489041866_9520107234739470_2961360016254588005_n.jpg',
+        '1/images/IMG_1901.PNG',
+
+        '1/images/IMG_6129.jpg',
+        '1/images/IMG_1904.PNG',
+        '1/images/491964974_9623052441111615_6977924920370143104_n.jpg',
+        '1/images/advancednew.jpg',
+        '1/images/490855416_9570495323033994_5315674643087459799_n.jpg',
+
+        '1/images/482209172_9364902986926563_5916584812675029144_n.jpg',
+        '1/images/490916081_9562715080478685_3297657162050413043_n.jpg',
+        '1/images/487543765_9467208896695971_8944467126548948374_n.jpg',
+        '1/images/487674476_9467202060029988_4815281988279844292_n.jpg',
+
+        '1/images/514271693_23893602583630029_530679452399934868_n.jpg',
+        '1/images/513780330_23894519890204965_6951999527634970080_n.jpg',
+        '1/images/540419627_24413309771659305_470074930240162789_n.jpg',
+        '1/images/593543667_25240798478910426_305354356074607486_n.jpg',
+
+        '1/images/IMG_1902.PNG',
+        '1/images/allaalder.jpg',
+        '1/images/elite.jpg',
+        '1/images/gemenskap.jpg',
+
+        '1/images/IMG_0477.jpg',
+        '1/images/IMG_5161.jpg',
+        '1/images/IMG_6129.jpg',
+        '1/images/IMG_7552.jpg',
+
+        '1/images/IMG_7963.JPG',
+        '1/images/IMG_9214.jpg',
+        '1/images/mainPic2.jpg',
+        '1/images/mainPic3.jpg',
+
+        '1/images/mainPic4.jpg',
+        '1/images/mainPic5.jpg',
+        '1/images/vinst.jpg',
+        '1/images/483735717_9358447500905445_6877543920309236774_n.jpg'
+
     ];
-
-    // Check WebP support
-    function supportsWebP() {
-        const elem = document.createElement('canvas');
-        if (elem.getContext && elem.getContext('2d')) {
-            return elem.toDataURL('image/webp').indexOf('data:image/webp') === 0;
-        }
-        return false;
-    }
-
-    const useWebP = supportsWebP();
-
-    // Function to get image source based on WebP support
-    function getImageSrc(imageObj) {
-        return useWebP ? imageObj.webp : imageObj.fallback;
-    }
 
     // Function to shuffle array (Fisher-Yates algorithm) - ensures no duplicates
     function shuffleArray(array) {
@@ -381,16 +361,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const selectedImages = shuffledImages.slice(0, 8);
 
         mainGallery.innerHTML = '';
-        selectedImages.forEach((imageObj, index) => {
+        selectedImages.forEach((imagePath, index) => {
             const galleryItem = document.createElement('div');
             galleryItem.className = 'gallery-item';
-            const imageSrc = getImageSrc(imageObj);
-            galleryItem.innerHTML = `
-                <picture>
-                    <source srcset="${imageObj.webp}" type="image/webp">
-                    <img src="${imageObj.fallback}" alt="Lion Taekwondo IF träning och tävling - Bild ${index + 1}" loading="lazy">
-                </picture>
-            `;
+            galleryItem.innerHTML = `<img src="${imagePath}" alt="Lion Taekwondo IF träning och tävling - Bild ${index + 1}" loading="lazy">`;
             mainGallery.appendChild(galleryItem);
         });
 
@@ -404,16 +378,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!modalGallery) return;
 
         modalGallery.innerHTML = '';
-        allGalleryImages.forEach((imageObj, index) => {
+        allGalleryImages.forEach((imagePath, index) => {
             const galleryItem = document.createElement('div');
             galleryItem.className = 'modal-gallery-item';
-            const imageSrc = getImageSrc(imageObj);
-            galleryItem.innerHTML = `
-                <picture>
-                    <source srcset="${imageObj.webp}" type="image/webp">
-                    <img src="${imageObj.fallback}" alt="Lion Taekwondo IF träning, tävling och gemenskap - Galleri bild ${index + 1}" loading="lazy">
-                </picture>
-            `;
+            galleryItem.innerHTML = `<img src="${imagePath}" alt="Lion Taekwondo IF träning, tävling och gemenskap - Galleri bild ${index + 1}" loading="lazy">`;
             modalGallery.appendChild(galleryItem);
         });
 
