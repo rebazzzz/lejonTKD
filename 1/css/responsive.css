@@ -327,6 +327,25 @@
     font-size: 0.8rem;
   }
 
+  /* Schedule Buttons */
+  .schedule .text-center {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+  }
+
+  .schedule .btn {
+    padding: 0.75rem 1.25rem !important;
+    font-size: 0.95rem !important;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .schedule .btn svg {
+    width: 16px !important;
+    height: 16px !important;
+    margin-right: 6px !important;
+  }
+
   /* Modals */
   .modal-content {
     max-width: 600px;
@@ -470,8 +489,28 @@
   }
 
   .btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  /* Schedule Buttons - More compact on mobile */
+  .schedule .text-center {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    margin-top: 1rem !important;
+  }
+
+  .schedule .btn {
+    padding: 0.7rem 1rem !important;
+    font-size: 0.9rem !important;
     width: 100%;
-    max-width: 280px;
+    max-width: 100%;
+  }
+
+  .schedule .btn svg {
+    width: 14px !important;
+    height: 14px !important;
+    margin-right: 5px !important;
   }
 
   /* Sections */
