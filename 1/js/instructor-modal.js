@@ -19,9 +19,20 @@
   function openModal(instructorData) {
     if (!modal) return;
 
-    // Populate modal with instructor data
-    modalImage.src = instructorData.image;
+    // Convert image path to WebP with fallback
+    const webpImage = instructorData.image.replace(/\.(jpg|jpeg|png)/i, '.webp').replace('images/', 'images/webp/');
+    
+    // Try to load WebP image first
+    modalImage.src = webpImage;
     modalImage.alt = instructorData.name;
+    
+    // Fallback to original image if WebP fails to load
+    modalImage.onerror = function() {
+      modalImage.src = instructorData.image;
+      modalImage.onerror = null; // Prevent infinite loop
+    };
+    
+    // Populate other modal data
     modalTitle.textContent = instructorData.name;
     modalBelt.textContent = instructorData.belt;
     modalRole.textContent = instructorData.role;
