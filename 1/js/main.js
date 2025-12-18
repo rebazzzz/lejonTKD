@@ -364,7 +364,7 @@ document.addEventListener('DOMContentLoaded', function() {
         selectedImages.forEach((imagePath, index) => {
             const galleryItem = document.createElement('div');
             galleryItem.className = 'gallery-item';
-            galleryItem.innerHTML = `<img src="${imagePath}" alt="Bild från Lion Taekwondo IF" loading="lazy">`;
+            galleryItem.innerHTML = `<img src="${imagePath}" alt="Lion Taekwondo IF träning och tävling - Bild ${index + 1}" loading="lazy">`;
             mainGallery.appendChild(galleryItem);
         });
 
@@ -381,7 +381,7 @@ document.addEventListener('DOMContentLoaded', function() {
         allGalleryImages.forEach((imagePath, index) => {
             const galleryItem = document.createElement('div');
             galleryItem.className = 'modal-gallery-item';
-            galleryItem.innerHTML = `<img src="${imagePath}" alt="Bild från Lion Taekwondo IF" loading="lazy">`;
+            galleryItem.innerHTML = `<img src="${imagePath}" alt="Lion Taekwondo IF träning, tävling och gemenskap - Galleri bild ${index + 1}" loading="lazy">`;
             modalGallery.appendChild(galleryItem);
         });
 
