@@ -492,12 +492,6 @@
     order: 2;
   }
 
-  /* Chat Widget */
-  .chat-container {
-    width: 320px;
-    height: 450px;
-  }
-
   /* Footer */
   .footer {
     padding: 1.5rem 0 1rem;
@@ -1018,19 +1012,6 @@
     order: 2;
   }
 
-  /* Chat Widget */
-  .chat-widget {
-    bottom: 1rem;
-    right: 1rem;
-  }
-
-  .chat-container {
-    width: calc(100vw - 2rem);
-    max-width: 320px;
-    height: 400px;
-    right: -1rem;
-  }
-
   /* Footer */
   .footer {
     padding: 1.25rem 0 0.75rem;
@@ -1246,11 +1227,6 @@
     font-size: 0.95rem;
   }
 
-  .chat-container {
-    width: calc(100vw - 1.5rem);
-    right: -0.75rem;
-  }
-
   .modal-content {
     width: calc(100vw - 1.5rem);
     margin: 0.75rem;
@@ -1293,7 +1269,6 @@
 
 /* Print Styles */
 @media print {
-  .chat-widget,
   .nav-toggle,
   .cart-icon-container {
     display: none !important;
