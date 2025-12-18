@@ -1,0 +1,13 @@
+# robots.txt for Lion Taekwondo IF
+# https://www.liontkd.se
+
+User-agent: *
+Allow: /
+Disallow: /1/js/
+Disallow: /1/css/
+Disallow: /1/cart.html
+Disallow: /1/checkout.html
+Disallow: /2/
+
+# Sitemap location
+Sitemap: https://www.liontkd.se/sitemap.xml
