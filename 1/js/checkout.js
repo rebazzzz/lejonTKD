@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize checkout page
     function initCheckoutPage() {
         if (cart.length === 0) {
-            // Redirect to cart if empty
-            window.location.href = 'cart.html';
+            // Redirect to shop if cart is empty
+            window.location.href = 'shop.html';
             return;
         }
 

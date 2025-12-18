@@ -339,56 +339,6 @@ document.addEventListener('DOMContentLoaded', function() {
         cartSidebar.classList.remove('active');
     }
 
-    // Checkout functions
-    function openCheckout() {
-        if (cart.length === 0) return;
-        
-        updateCheckoutSummary();
-        closeCart();
-        checkoutModal.classList.add('active');
-    }
-
-    function closeCheckout() {
-        checkoutModal.classList.remove('active');
-    }
-
-    function updateCheckoutSummary() {
-        if (!checkoutSummary || !checkoutTotal) return;
-        
-        const itemsHTML = cart.map(item => `
-            <div class="order-item">
-                <span>${item.name} x${item.quantity}</span>
-                <span>${item.price * item.quantity} kr</span>
-            </div>
-        `).join('');
-        
-        const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        
-        checkoutSummary.innerHTML = itemsHTML;
-        checkoutTotal.textContent = `${total} kr`;
-    }
-
-    function processCheckout(e) {
-        e.preventDefault();
-        
-        // In a real application, you would process the payment here
-        console.log('Processing checkout...');
-        
-        // Generate random order number
-        const orderNumber = `LTKD-${new Date().getFullYear()}-${Math.floor(100 + Math.random() * 900)}`;
-        document.getElementById('order-number').textContent = orderNumber;
-        
-        closeCheckout();
-        orderSuccessModal.classList.add('active');
-        
-        // Clear cart after successful order
-        clearCart();
-    }
-
-    function closeOrderSuccess() {
-        orderSuccessModal.classList.remove('active');
-    }
-
     // Filter and sort functions
     function filterProducts() {
         const category = categoryFilter.value;
