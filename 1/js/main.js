@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Hero background carousel implementation with crossfade - UPDATED FOR WEBP
+    // Hero background carousel implementation with OPTIMIZED progressive loading
     const heroElement = document.querySelector('.hero');
     if (heroElement) {
         const backgrounds = heroElement.querySelectorAll('.hero-background');
@@ -96,6 +96,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         let currentIndex = 0;
         let currentBg = 0;
+        let preloadedImages = new Map(); // Cache for preloaded images
+        let isFirstLoad = true;
 
         // Check WebP support
         function supportsWebP() {
@@ -108,24 +110,136 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const useWebP = supportsWebP();
 
-        // Initialize backgrounds
-        backgrounds[0].style.backgroundImage = `url('${useWebP ? images[0].webp : images[0].fallback}')`;
-        backgrounds[0].classList.add('visible');
-        backgrounds[1].style.backgroundImage = `url('${useWebP ? images[1].webp : images[1].fallback}')`;
+        // Progressive image preloader with decode API
+        function preloadImage(imageObj, priority = false) {
+            return new Promise((resolve, reject) => {
+                const imageUrl = useWebP ? imageObj.webp : imageObj.fallback;
+                
+                // Check if already preloaded
+                if (preloadedImages.has(imageUrl)) {
+                    resolve(imageUrl);
+                    return;
+                }
 
-        currentIndex = 1;
+                const img = new Image();
+                
+                // Set priority hint for critical images
+                if (priority && 'fetchPriority' in img) {
+                    img.fetchPriority = 'high';
+                }
 
-        function changeBackground() {
-            const nextBg = (currentBg + 1) % 2;
-            const imageToUse = useWebP ? images[currentIndex].webp : images[currentIndex].fallback;
-            backgrounds[nextBg].style.backgroundImage = `url('${imageToUse}')`;
-            backgrounds[nextBg].classList.add('visible');
-            backgrounds[currentBg].classList.remove('visible');
-            currentBg = nextBg;
-            currentIndex = (currentIndex + 1) % images.length;
+                img.onload = () => {
+                    // Use decode API for smoother rendering
+                    if ('decode' in img) {
+                        img.decode()
+                            .then(() => {
+                                preloadedImages.set(imageUrl, true);
+                                resolve(imageUrl);
+                            })
+                            .catch(() => {
+                                preloadedImages.set(imageUrl, true);
+                                resolve(imageUrl);
+                            });
+                    } else {
+                        preloadedImages.set(imageUrl, true);
+                        resolve(imageUrl);
+                    }
+                };
+
+                img.onerror = () => {
+                    console.warn(`Failed to load hero image: ${imageUrl}`);
+                    reject(new Error(`Failed to load ${imageUrl}`));
+                };
+
+                img.src = imageUrl;
+            });
         }
 
-        setInterval(changeBackground, 4000);
+        // Initialize first background with loading state
+        async function initializeHero() {
+            try {
+                backgrounds[0].classList.add('loading');
+                
+                // Preload first image with high priority
+                const firstImageUrl = await preloadImage(images[0], true);
+                
+                backgrounds[0].style.backgroundImage = `url('${firstImageUrl}')`;
+                backgrounds[0].classList.remove('loading');
+                backgrounds[0].classList.add('loaded', 'visible');
+                
+                // Mark hero as loaded to hide placeholder
+                heroElement.classList.add('loaded');
+                
+                // Preload second image immediately for smooth transition
+                preloadImage(images[1], true).then(secondImageUrl => {
+                    backgrounds[1].style.backgroundImage = `url('${secondImageUrl}')`;
+                });
+
+                currentIndex = 1;
+
+                // Preload remaining images in background (low priority)
+                if ('requestIdleCallback' in window) {
+                    requestIdleCallback(() => {
+                        for (let i = 2; i < images.length; i++) {
+                            preloadImage(images[i], false);
+                        }
+                    });
+                } else {
+                    setTimeout(() => {
+                        for (let i = 2; i < images.length; i++) {
+                            preloadImage(images[i], false);
+                        }
+                    }, 1000);
+                }
+
+                isFirstLoad = false;
+
+            } catch (error) {
+                console.error('Hero initialization error:', error);
+                // Fallback: show hero without image
+                backgrounds[0].classList.remove('loading');
+                heroElement.classList.add('loaded');
+            }
+        }
+
+        // Optimized background change with preloading
+        async function changeBackground() {
+            const nextBg = (currentBg + 1) % 2;
+            const nextIndex = (currentIndex + 1) % images.length;
+            
+            try {
+                // Ensure next image is preloaded
+                const imageUrl = useWebP ? images[currentIndex].webp : images[currentIndex].fallback;
+                
+                if (!preloadedImages.has(imageUrl)) {
+                    await preloadImage(images[currentIndex], true);
+                }
+
+                backgrounds[nextBg].style.backgroundImage = `url('${imageUrl}')`;
+                backgrounds[nextBg].classList.add('visible', 'loaded');
+                backgrounds[currentBg].classList.remove('visible');
+                
+                currentBg = nextBg;
+                currentIndex = nextIndex;
+
+                // Preload next image for smooth transition
+                const upcomingIndex = (currentIndex + 1) % images.length;
+                preloadImage(images[upcomingIndex], false);
+
+            } catch (error) {
+                console.error('Background change error:', error);
+                // Continue carousel even if one image fails
+                currentIndex = nextIndex;
+            }
+        }
+
+        // Initialize hero
+        initializeHero();
+
+        // Start carousel after first load
+        setTimeout(() => {
+            setInterval(changeBackground, 4000);
+        }, 4000);
     }
 });
 
