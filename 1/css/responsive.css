@@ -21,8 +21,48 @@
 
 /* Desktop (769px - 1199px) */
 @media (min-width: 769px) and (max-width: 1199px) {
+  /* Fix black space on right side and overflow issues */
+  body {
+    overflow-x: hidden;
+    padding-top: 90px;
+  }
+
   .container {
     max-width: 1000px;
+  }
+
+  /* Logo - Much smaller size */
+  .logo-image {
+    height: 2.8rem;
+    width: 2.8rem;
+    margin-right: 0.3rem;
+  }
+
+  .logo-text {
+    font-size: 0.95rem;
+  }
+
+  /* Navigation - Ultra compact with minimal spacing */
+  .nav-menu {
+    gap: 0.15rem;
+    margin-left: 0;
+  }
+
+  .nav-link {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.2rem;
+  }
+
+  /* Fix hero section overflow */
+  .hero {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .hero-background {
+    width: 100%;
+    max-width: 100vw;
   }
 
   .hero-title {
@@ -56,6 +96,30 @@
   .gallery-item {
     width: 250px;
     height: 250px;
+  }
+}
+
+/* Additional fix for screens 769px-812px */
+@media (min-width: 769px) and (max-width: 812px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .hero {
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+  }
+
+  .hero-background {
+    width: 100%;
+    left: 0;
+    right: 0;
+  }
+
+  .hero-content {
+    max-width: 90%;
+    margin: 0 auto;
   }
 }
 
