@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const checkoutForm = document.getElementById('checkout-form');
     const checkoutItems = document.getElementById('checkout-items');
     const subtotalElement = document.getElementById('subtotal');
-    const shippingElement = document.getElementById('shipping');
+    const vatElement = document.getElementById('vat');
     const totalElement = document.getElementById('total');
     const orderSuccessModal = document.getElementById('order-success-modal');
     const successClose = document.getElementById('success-close');
@@ -45,11 +45,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Update totals
         const subtotal = calculateSubtotal();
-        const shipping = calculateShipping();
-        const total = subtotal + shipping;
+        const vat = calculateVAT(subtotal);
+        const total = subtotal + vat;
 
         if (subtotalElement) subtotalElement.textContent = `${subtotal} kr`;
-        if (shippingElement) shippingElement.textContent = `${shipping} kr`;
+        if (vatElement) vatElement.textContent = `${vat} kr`;
         if (totalElement) totalElement.textContent = `${total} kr`;
     }
 
@@ -58,9 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
         return cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     }
 
-    function calculateShipping() {
-        const subtotal = calculateSubtotal();
-        return subtotal >= 500 ? 0 : 49; // Free shipping over 500 kr
+    function calculateVAT(subtotal) {
+        // Calculate 25% VAT
+        return Math.round(subtotal * 0.25);
     }
 
     // Setup event listeners
@@ -104,18 +104,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 email: formData.get('email'),
                 phone: formData.get('phone')
             },
-            shipping: {
-                address: formData.get('address'),
-                postalCode: formData.get('postalCode'),
-                city: formData.get('city')
-            },
             paymentMethod: formData.get('paymentMethod'),
             orderNotes: formData.get('orderNotes'),
             items: cart,
             totals: {
                 subtotal: calculateSubtotal(),
-                shipping: calculateShipping(),
-                total: calculateSubtotal() + calculateShipping()
+                vat: calculateVAT(calculateSubtotal()),
+                total: calculateSubtotal() + calculateVAT(calculateSubtotal())
             }
         };
 
