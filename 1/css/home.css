@@ -94,16 +94,18 @@
   position: relative;
   z-index: 2;
   animation: fadeInUp 1s ease-out 0.5s both;
+  will-change: transform, opacity;
+  transform: translateZ(0); /* Force GPU acceleration */
 }
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translate3d(0, 30px, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -137,9 +139,11 @@
 .hero-actions .btn-secondary {
   text-shadow: 0 2px 6px rgba(0,0,0,0.8);
   box-shadow: 0 6px 16px rgba(0,0,0,0.6);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 0.9rem;
   animation: fadeInUp 1s ease-out 1s both;
+  will-change: transform;
+  transform: translateZ(0); /* Force GPU acceleration */
 }
 
 .hero-actions .btn-primary {
@@ -149,7 +153,7 @@
 .hero-actions .btn-primary:hover,
 .hero-actions .btn-secondary:hover {
   box-shadow: 0 10px 24px rgba(0,0,0,0.8);
-  transform: translateY(-2px);
+  transform: translate3d(0, -2px, 0);
 }
 
 /* Features Section */
@@ -184,9 +188,11 @@
   background-position: center;
   display: flex;
   align-items: flex-end;
-  transition: transform .35s, box-shadow .35s;
+  transition: transform .35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow .35s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 8px 30px var(--card-elev);
   filter: brightness(0.9) contrast(1.1) saturate(1.2);
+  will-change: transform;
+  transform: translateZ(0); /* Force GPU acceleration */
 }
 
 /* SOFT GRADIENT (låter bilden synas) */
@@ -240,7 +246,7 @@
 
 /* HOVER */
 .features-hero .hero-card:hover {
-  transform: translateY(-8px);
+  transform: translate3d(0, -8px, 0);
 }
 
 /* MOBILE */
@@ -315,11 +321,13 @@
   padding: 3rem 2rem;
   border: 2px solid rgba(255, 212, 0, 0.2);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  transform: translateZ(0); /* Force GPU acceleration */
 }
 
 .cta-content:hover {
-  transform: translateY(-4px);
+  transform: translate3d(0, -4px, 0);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
 }
 
@@ -373,13 +381,15 @@
   border-radius: var(--radius, 12px);
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 15px rgba(255, 212, 0, 0.1);
   height: 300px;
+  will-change: transform;
+  transform: translateZ(0); /* Force GPU acceleration */
 }
 
 .gallery-item:hover {
-  transform: scale(1.03);
+  transform: scale3d(1.03, 1.03, 1);
   box-shadow: 0 8px 25px rgba(255, 212, 0, 0.2);
 }
 
@@ -389,11 +399,13 @@
   object-fit: cover;
   display: block;
   filter: brightness(0.85) contrast(1.05);
-  transition: transform 0.3s ease, filter 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  transform: translateZ(0); /* Force GPU acceleration */
 }
 
 .gallery-item:hover img {
-  transform: scale(1.05);
+  transform: scale3d(1.05, 1.05, 1);
   filter: brightness(1) contrast(1.1);
 }
 
@@ -505,13 +517,15 @@
   border-radius: var(--radius, 12px);
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 15px rgba(255, 212, 0, 0.1);
   height: 280px;
+  will-change: transform;
+  transform: translateZ(0); /* Force GPU acceleration */
 }
 
 .modal-gallery-item:hover {
-  transform: translateY(-5px);
+  transform: translate3d(0, -5px, 0);
   box-shadow: 0 8px 25px rgba(255, 212, 0, 0.3);
 }
 
@@ -546,8 +560,10 @@
   z-index: 1000;
   border: 3px solid rgba(255, 212, 0, 0.3);
   box-shadow: 0 4px 20px rgba(255, 212, 0, 0.4);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 1;
+  will-change: transform;
+  transform: translateZ(0); /* Force GPU acceleration */
 }
 
 .back-to-top.visible {
@@ -555,7 +571,7 @@
 }
 
 .back-to-top:hover {
-  transform: translateY(-5px);
+  transform: translate3d(0, -5px, 0);
   box-shadow: 0 8px 30px rgba(255, 212, 0, 0.6);
   background: #ffdb33;
 }
