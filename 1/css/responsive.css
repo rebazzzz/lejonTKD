@@ -225,6 +225,26 @@
     gap: 2rem;
   }
 
+  .trial-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .trial-actions .btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .trial-actions .btn svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+  }
+
   /* Forms */
   .form-row {
     grid-template-columns: 1fr;
@@ -268,6 +288,20 @@
 
   .cart-sidebar {
     max-width: 380px;
+  }
+
+  /* Checkout Layout */
+  .checkout-layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .checkout-summary {
+    order: 1;
+  }
+
+  .checkout-form-container {
+    order: 2;
   }
 
   /* Chat Widget */
@@ -758,6 +792,20 @@
   .cart-item-controls {
     justify-content: center;
     margin-top: 0.5rem;
+  }
+
+  /* Checkout Layout */
+  .checkout-layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .checkout-summary {
+    order: 1;
+  }
+
+  .checkout-form-container {
+    order: 2;
   }
 
   /* Chat Widget */
