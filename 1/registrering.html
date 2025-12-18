@@ -226,18 +226,60 @@
     <!-- Success Modal -->
     <div class="modal" id="success-modal">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">Tack för din registrering!</h2>
-                <button class="modal-close" id="modal-close">&times;</button>
-            </div>
+            <button class="modal-close" id="modal-close" aria-label="Stäng">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            
             <div class="modal-body">
-                <div class="success-icon">🎉</div>
-                <p>Din registrering har mottagits! Vi kommer att kontakta dig inom 24 timmar för att bekräfta ditt
-                    medlemskap och boka in en första träning.</p>
-                <p>Välkommen till Lejon TKD!</p>
+                <div class="success-icon-wrapper">
+                    <svg class="success-icon" width="80" height="80" viewBox="0 0 80 80" fill="none">
+                        <circle cx="40" cy="40" r="38" stroke="#FFD400" stroke-width="4"/>
+                        <path d="M25 40L35 50L55 30" stroke="#FFD400" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                
+                <h2 class="modal-title">Registrering Slutförd!</h2>
+                
+                <div class="modal-message">
+                    <p class="modal-text-primary">Din registrering har mottagits och behandlats.</p>
+                    <p class="modal-text-secondary">Du kan nu börja träna med oss direkt! Välj en tid som passar dig i vårt träningsschema och kom till din första träning.</p>
+                </div>
+                
+                <div class="modal-info-box">
+                    <h3 class="info-box-title">Nästa Steg</h3>
+                    <ul class="info-list">
+                        <li>
+                            <svg class="info-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M16.667 3.333H3.333C2.413 3.333 1.667 4.08 1.667 5v10c0 .92.746 1.667 1.666 1.667h13.334c.92 0 1.666-.747 1.666-1.667V5c0-.92-.746-1.667-1.666-1.667z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M1.667 8.333h16.666M6.667 12.5h3.333" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Kolla in vårt träningsschema</span>
+                        </li>
+                        <li>
+                            <svg class="info-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M10 18.333c4.602 0 8.333-3.731 8.333-8.333S14.602 1.667 10 1.667 1.667 5.398 1.667 10s3.731 8.333 8.333 8.333z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10 5v5l3.333 1.667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Kom 15 minuter innan första träningen</span>
+                        </li>
+                        <li>
+                            <svg class="info-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M16.667 2.5H3.333c-.92 0-1.666.746-1.666 1.667v11.666c0 .92.746 1.667 1.666 1.667h13.334c.92 0 1.666-.747 1.666-1.667V4.167c0-.92-.746-1.667-1.666-1.667z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M13.333 1.667v1.666M6.667 1.667v1.666M1.667 7.5h16.666" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Ta med bekväma träningskläder</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <p class="modal-welcome">Välkommen till Lion TKD familjen!</p>
             </div>
+            
             <div class="modal-actions">
-                <button class="btn btn-primary" id="modal-confirm">OK</button>
+                <a href="traningsschema.html" class="btn btn-primary">Se Träningsschema</a>
             </div>
         </div>
     </div>

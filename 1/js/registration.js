@@ -72,12 +72,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    if (modalConfirm) {
-        modalConfirm.addEventListener('click', function() {
-            successModal.classList.remove('active');
-        });
-    }
-
     // Close modal when clicking outside
     if (successModal) {
         successModal.addEventListener('click', function(e) {

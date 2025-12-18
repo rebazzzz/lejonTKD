@@ -574,6 +574,28 @@
     max-width: 600px;
     width: 95%;
   }
+
+  .modal-body {
+    padding: 2.5rem 2rem 1.5rem;
+  }
+
+  .modal-info-box {
+    padding: 1.25rem;
+  }
+
+  .info-list li {
+    font-size: 0.9rem;
+  }
+
+  .modal-actions {
+    padding: 0 2rem 2rem;
+    flex-direction: column;
+  }
+
+  .modal-actions .btn {
+    width: 100%;
+    min-width: auto;
+  }
 }
 
 /* Mobile (up to 480px) */
@@ -1071,23 +1093,87 @@
     max-width: none;
     margin: 1rem;
     max-height: calc(100vh - 2rem);
+    border-radius: 12px;
   }
 
-  .modal-header {
-    padding: 1.25rem 1.5rem;
+  .modal-close {
+    top: 1rem;
+    right: 1rem;
+    width: 36px;
+    height: 36px;
+  }
+
+  .modal-close svg {
+    width: 18px;
+    height: 18px;
   }
 
   .modal-body {
-    padding: 1.5rem;
+    padding: 2.5rem 1.5rem 1.5rem;
+  }
+
+  .success-icon-wrapper {
+    margin-bottom: 1.5rem;
+  }
+
+  .success-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .modal-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .modal-text-primary {
+    font-size: 1rem;
+  }
+
+  .modal-text-secondary {
+    font-size: 0.95rem;
+  }
+
+  .modal-info-box {
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .info-box-title {
+    font-size: 0.9rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .info-list {
+    gap: 0.75rem;
+  }
+
+  .info-list li {
+    font-size: 0.875rem;
+    gap: 0.625rem;
+  }
+
+  .info-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .modal-welcome {
+    font-size: 1rem;
+    padding-top: 0.875rem;
   }
 
   .modal-actions {
     padding: 0 1.5rem 1.5rem;
     flex-direction: column;
+    gap: 0.75rem;
   }
 
-  .btn {
+  .modal-actions .btn {
     width: 100%;
+    min-width: auto;
+    padding: 0.875rem 1.25rem;
+    font-size: 0.95rem;
   }
 
   /* Page Headers */
@@ -1168,6 +1254,40 @@
   .modal-content {
     width: calc(100vw - 1.5rem);
     margin: 0.75rem;
+    border-radius: 10px;
+  }
+
+  .modal-close {
+    top: 0.875rem;
+    right: 0.875rem;
+    width: 32px;
+    height: 32px;
+  }
+
+  .modal-body {
+    padding: 2.25rem 1.25rem 1.25rem;
+  }
+
+  .success-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .modal-title {
+    font-size: 1.375rem;
+  }
+
+  .modal-info-box {
+    padding: 1rem;
+  }
+
+  .info-list li {
+    font-size: 0.85rem;
+  }
+
+  .modal-actions .btn {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
   }
 }
 
